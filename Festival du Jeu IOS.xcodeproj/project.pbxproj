@@ -14,6 +14,8 @@
 		B1B050482BA0971000FD010A /* Festival_du_Jeu_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050472BA0971000FD010A /* Festival_du_Jeu_IOSTests.swift */; };
 		B1B050522BA0971000FD010A /* Festival_du_Jeu_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050512BA0971000FD010A /* Festival_du_Jeu_IOSUITests.swift */; };
 		B1B050542BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050532BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift */; };
+		B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0506E2BA09D0E00FD010A /* AuthView.swift */; };
+		B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050702BA09DA500FD010A /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		B1B0504D2BA0971000FD010A /* Festival du Jeu IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Festival du Jeu IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B050512BA0971000FD010A /* Festival_du_Jeu_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival_du_Jeu_IOSUITests.swift; sourceTree = "<group>"; };
 		B1B050532BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival_du_Jeu_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1B0506E2BA09D0E00FD010A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		B1B050702BA09DA500FD010A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,13 @@
 		B1B050352BA0970E00FD010A /* Festival du Jeu IOS */ = {
 			isa = PBXGroup;
 			children = (
+				B1B050682BA09B8A00FD010A /* Views */,
+				B1B050672BA09AE400FD010A /* ViewModels */,
+				B1B050662BA09AD300FD010A /* Tools */,
+				B1B050652BA09ABF00FD010A /* Intents */,
+				B1B050642BA09A9900FD010A /* Enums */,
+				B1B050632BA09A8D00FD010A /* DTOs */,
+				B1B050622BA09A7700FD010A /* Components */,
 				B1B050362BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift */,
 				B1B050382BA0970E00FD010A /* ContentView.swift */,
 				B1B0503A2BA0971000FD010A /* Assets.xcassets */,
@@ -125,6 +136,65 @@
 				B1B050532BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift */,
 			);
 			path = "Festival du Jeu IOSUITests";
+			sourceTree = "<group>";
+		};
+		B1B050622BA09A7700FD010A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B1B050702BA09DA500FD010A /* CustomButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B1B050632BA09A8D00FD010A /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		B1B050642BA09A9900FD010A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		B1B050652BA09ABF00FD010A /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		B1B050662BA09AD300FD010A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B1B050672BA09AE400FD010A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B1B050682BA09B8A00FD010A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1B0506B2BA09C8800FD010A /* Auth */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1B0506B2BA09C8800FD010A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B1B0506E2BA09D0E00FD010A /* AuthView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
+				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
