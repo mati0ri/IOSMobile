@@ -14,7 +14,6 @@ struct AuthView: View {
     var body: some View {
         VStack {
                     if isConnected {
-                        // Affichez le texte "connecté" si l'utilisateur est connecté
                         Text("Connecté")
                     }
                     CustomButton(text: "Se connecter", action: loginWithEmail)

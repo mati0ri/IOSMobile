@@ -16,6 +16,13 @@
 		B1B050542BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050532BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift */; };
 		B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0506E2BA09D0E00FD010A /* AuthView.swift */; };
 		B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050702BA09DA500FD010A /* CustomButton.swift */; };
+		B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050722BA19E8900FD010A /* BenevoleVM.swift */; };
+		B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050762BA1A69E00FD010A /* APIStates.swift */; };
+		B1B050792BA1A6C900FD010A /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050782BA1A6C900FD010A /* APIErrors.swift */; };
+		B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0507A2BA1A75C00FD010A /* BenevoleDTO.swift */; };
+		B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */; };
+		B1B050822BA1B62800FD010A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050812BA1B62800FD010A /* LoginView.swift */; };
+		B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050842BA1B66A00FD010A /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,13 @@
 		B1B050532BA0971000FD010A /* Festival_du_Jeu_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival_du_Jeu_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1B0506E2BA09D0E00FD010A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		B1B050702BA09DA500FD010A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B1B050722BA19E8900FD010A /* BenevoleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleVM.swift; sourceTree = "<group>"; };
+		B1B050762BA1A69E00FD010A /* APIStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStates.swift; sourceTree = "<group>"; };
+		B1B050782BA1A6C900FD010A /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
+		B1B0507A2BA1A75C00FD010A /* BenevoleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleDTO.swift; sourceTree = "<group>"; };
+		B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleIntent.swift; sourceTree = "<group>"; };
+		B1B050812BA1B62800FD010A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B1B050842BA1B66A00FD010A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +163,7 @@
 		B1B050632BA09A8D00FD010A /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				B1B0507A2BA1A75C00FD010A /* BenevoleDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -156,6 +171,8 @@
 		B1B050642BA09A9900FD010A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				B1B050762BA1A69E00FD010A /* APIStates.swift */,
+				B1B050782BA1A6C900FD010A /* APIErrors.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 		B1B050652BA09ABF00FD010A /* Intents */ = {
 			isa = PBXGroup;
 			children = (
+				B1B0507E2BA1AC4200FD010A /* Benevole */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -177,6 +195,8 @@
 		B1B050672BA09AE400FD010A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
+				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,8 +213,17 @@
 			isa = PBXGroup;
 			children = (
 				B1B0506E2BA09D0E00FD010A /* AuthView.swift */,
+				B1B050812BA1B62800FD010A /* LoginView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B1B0507E2BA1AC4200FD010A /* Benevole */ = {
+			isa = PBXGroup;
+			children = (
+				B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */,
+			);
+			path = Benevole;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +356,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
 				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
+				B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */,
+				B1B050792BA1A6C900FD010A /* APIErrors.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
+				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
+				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
+				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
+				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +533,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,6 +563,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
