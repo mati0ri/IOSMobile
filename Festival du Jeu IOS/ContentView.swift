@@ -22,6 +22,13 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
+                NavigationLink(destination: JeuxListeView()) {
+                    Text("Voir la liste des jeux")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
             .padding()
         }

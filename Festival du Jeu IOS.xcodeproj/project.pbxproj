@@ -23,6 +23,11 @@
 		B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */; };
 		B1B050822BA1B62800FD010A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050812BA1B62800FD010A /* LoginView.swift */; };
 		B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050842BA1B66A00FD010A /* LoginViewModel.swift */; };
+		F86469022BA484650021C32D /* JeuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86469012BA484650021C32D /* JeuView.swift */; };
+		F86469042BA484E80021C32D /* JeuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86469032BA484E80021C32D /* JeuViewModel.swift */; };
+		F86469072BA485310021C32D /* JeuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86469062BA485310021C32D /* JeuModel.swift */; };
+		F86469092BA485AC0021C32D /* JeuxListeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86469082BA485AC0021C32D /* JeuxListeView.swift */; };
+		F864690B2BA485FD0021C32D /* JeuxListeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F864690A2BA485FD0021C32D /* JeuxListeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleIntent.swift; sourceTree = "<group>"; };
 		B1B050812BA1B62800FD010A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B050842BA1B66A00FD010A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F86469012BA484650021C32D /* JeuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuView.swift; sourceTree = "<group>"; };
+		F86469032BA484E80021C32D /* JeuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuViewModel.swift; sourceTree = "<group>"; };
+		F86469062BA485310021C32D /* JeuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuModel.swift; sourceTree = "<group>"; };
+		F86469082BA485AC0021C32D /* JeuxListeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuxListeView.swift; sourceTree = "<group>"; };
+		F864690A2BA485FD0021C32D /* JeuxListeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuxListeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,7 @@
 		B1B050352BA0970E00FD010A /* Festival du Jeu IOS */ = {
 			isa = PBXGroup;
 			children = (
+				F86469052BA4851F0021C32D /* Models */,
 				B1B050682BA09B8A00FD010A /* Views */,
 				B1B050672BA09AE400FD010A /* ViewModels */,
 				B1B050662BA09AD300FD010A /* Tools */,
@@ -197,6 +208,8 @@
 			children = (
 				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
 				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
+				F86469032BA484E80021C32D /* JeuViewModel.swift */,
+				F864690A2BA485FD0021C32D /* JeuxListeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,6 +217,7 @@
 		B1B050682BA09B8A00FD010A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F86469002BA484000021C32D /* Jeux */,
 				B1B0506B2BA09C8800FD010A /* Auth */,
 			);
 			path = Views;
@@ -224,6 +238,23 @@
 				B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */,
 			);
 			path = Benevole;
+			sourceTree = "<group>";
+		};
+		F86469002BA484000021C32D /* Jeux */ = {
+			isa = PBXGroup;
+			children = (
+				F86469012BA484650021C32D /* JeuView.swift */,
+				F86469082BA485AC0021C32D /* JeuxListeView.swift */,
+			);
+			path = Jeux;
+			sourceTree = "<group>";
+		};
+		F86469052BA4851F0021C32D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F86469062BA485310021C32D /* JeuModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +321,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					B1B050322BA0970E00FD010A = {
 						CreatedOnToolsVersion = 14.2;
@@ -359,14 +390,19 @@
 				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
 				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
 				B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */,
+				F86469022BA484650021C32D /* JeuView.swift in Sources */,
 				B1B050792BA1A6C900FD010A /* APIErrors.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
+				F86469072BA485310021C32D /* JeuModel.swift in Sources */,
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
+				F864690B2BA485FD0021C32D /* JeuxListeViewModel.swift in Sources */,
+				F86469092BA485AC0021C32D /* JeuxListeView.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
+				F86469042BA484E80021C32D /* JeuViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +475,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -499,6 +536,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -525,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Festival du Jeu IOS/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -539,7 +577,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -555,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Festival du Jeu IOS/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -569,7 +607,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -584,11 +622,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -604,11 +642,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -623,10 +661,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -641,10 +679,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q7CD5RM5AT;
+				DEVELOPMENT_TEAM = G82H772FJH;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "mateo.Festival-du-Jeu-IOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "lenais.Festival-du-Jeu-IOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
