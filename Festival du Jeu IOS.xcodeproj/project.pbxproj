@@ -23,6 +23,8 @@
 		B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */; };
 		B1B050822BA1B62800FD010A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050812BA1B62800FD010A /* LoginView.swift */; };
 		B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050842BA1B66A00FD010A /* LoginViewModel.swift */; };
+		B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050862BA497FD00FD010A /* WelcomeView.swift */; };
+		B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050882BA4989700FD010A /* WelcomViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		B1B0507F2BA1AC6000FD010A /* BenevoleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenevoleIntent.swift; sourceTree = "<group>"; };
 		B1B050812BA1B62800FD010A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B050842BA1B66A00FD010A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B1B050862BA497FD00FD010A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		B1B050882BA4989700FD010A /* WelcomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,7 @@
 			children = (
 				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
 				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
+				B1B050882BA4989700FD010A /* WelcomViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				B1B0506B2BA09C8800FD010A /* Auth */,
+				B1B050862BA497FD00FD010A /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +369,8 @@
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
+				B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */,
+				B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
