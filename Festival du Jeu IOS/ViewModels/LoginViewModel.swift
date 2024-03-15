@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import Combine
 
-class LoginViewModel {
+class LoginViewModel: ObservableObject {
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
+    @Published var alertTitle = ""
+    @Published var isLoggedIn = false
+    
     private let loginURL = "https://backawi.onrender.com/api/user/login"
     
-    func loginUser(email: String, password: String, completion: @escaping (Bool, String?) -> Void) {
+    func loginUser(email: String, password: String) {
         guard let url = URL(string: loginURL) else {
-            completion(false, "Invalid URL")
+            self.updateAlert(title: "Erreur", message: "URL invalide")
             return
         }
         
@@ -26,20 +32,31 @@ class LoginViewModel {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(false, error?.localizedDescription ?? "Unknown Error")
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                // Handle successful login, parsing token etc.
-                completion(true, nil)
-            } else {
-                // Handle failure
-                let message = String(data: data, encoding: .utf8) ?? "Login failed"
-                completion(false, message)
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    self?.updateAlert(title: "Erreur", message: error?.localizedDescription ?? "Erreur inconnue")
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    self?.isLoggedIn = true
+                } else {
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []),
+                       let dictionary = json as? [String: Any],
+                       let message = dictionary["message"] as? String {
+                        self?.updateAlert(title: "Erreur", message: message)
+                    } else {
+                        self?.updateAlert(title: "Erreur", message: "Échec de la connexion.")
+                    }
+                }
             }
         }.resume()
+    }
+    
+    private func updateAlert(title: String, message: String) {
+        self.showingAlert = true
+        self.alertTitle = title
+        self.alertMessage = message
     }
 }
