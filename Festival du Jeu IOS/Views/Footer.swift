@@ -14,23 +14,19 @@ struct Footer: View {
             Spacer()
             HStack {
                 Spacer()
-                Button(action: {
+                Button("Page 1") {
                     // Code pour gérer la navigation vers la page 1
-                }) {
-                    Text("Page 1").foregroundColor(Colors.BleuFonce)
-                }
+                }.foregroundColor(Colors.BleuFonce)
                 Spacer()
-                Button(action: {
+                Button("Page 2") {
                     // Code pour gérer la navigation vers la page 2
-                }) {
-                    Text("Page 2").foregroundColor(Colors.BleuFonce)
-                }
+                }.foregroundColor(Colors.BleuFonce)
                 Spacer()
-                Button(action: {
-                    // Code pour gérer la navigation vers la page 3
-                }) {
-                    Text("Page 3").foregroundColor(Colors.BleuFonce)
-                }
+                
+                    NavigationLink(destination: JeuxListeView()) {
+                        Text("Jeux")
+                    }.foregroundColor(Colors.BleuFonce)
+                
                 Spacer()
             }
             .padding()

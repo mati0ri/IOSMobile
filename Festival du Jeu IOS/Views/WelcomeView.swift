@@ -10,13 +10,14 @@ import SwiftUI
 struct WelcomeView: View {
     // Si vous avez besoin de données pour cette vue, vous les passeriez ici.
     var body: some View {
-        VStack {
-            Text("Bienvenue")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-            Footer()
+        NavigationView {
+            VStack {
+                Text("Bienvenue")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                Footer()
+            }
         }
-        
     }
 }
 
