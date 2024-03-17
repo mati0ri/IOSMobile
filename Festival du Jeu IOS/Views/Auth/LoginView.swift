@@ -10,7 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
-    @State private var navigateToWelcome = false
+    @State private var pageInscription = false
+    
     
     @ObservedObject var viewModel: LoginViewModel
     
@@ -22,6 +23,8 @@ struct LoginView: View {
         
         if viewModel.isLoggedIn {
             WelcomeView()
+        } else if pageInscription {
+            SignInView()
         } else {
             VStack {
                 Text("Se connecter")
@@ -57,7 +60,7 @@ struct LoginView: View {
                     Text("Pas encore de Compte ?").foregroundColor(.secondary)
                     //Text("S'inscrire").foregroundColor(.blue)
                     Button("S'inscrire") {
-                        print("Redirection vers inscription à faire")
+                        pageInscription = true
                     }.foregroundColor(.blue).background(Color.white)
                 }
             }
