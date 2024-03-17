@@ -32,6 +32,8 @@
 		F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D282BA5FE6C00B85A7F /* JeuViewModel.swift */; };
 		F8144D2B2BA5FE9400B85A7F /* JeuxListeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D2A2BA5FE9400B85A7F /* JeuxListeViewModel.swift */; };
 		F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */; };
+		F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F02BA760C500DF731E /* SignInView.swift */; };
+		F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		F8144D282BA5FE6C00B85A7F /* JeuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuViewModel.swift; sourceTree = "<group>"; };
 		F8144D2A2BA5FE9400B85A7F /* JeuxListeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuxListeViewModel.swift; sourceTree = "<group>"; };
 		F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuModel.swift; sourceTree = "<group>"; };
+		F8DF89F02BA760C500DF731E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
 				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
 				B1B050882BA4989700FD010A /* WelcomViewModel.swift */,
+				F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			children = (
 				B1B0506E2BA09D0E00FD010A /* AuthView.swift */,
 				B1B050812BA1B62800FD010A /* LoginView.swift */,
+				F8DF89F02BA760C500DF731E /* SignInView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -416,12 +422,14 @@
 				F8144D1F2BA5F35200B85A7F /* Footer.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
 				F8144D242BA5FE1000B85A7F /* JeuView.swift in Sources */,
+				F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */,
 				F8144D262BA5FE3700B85A7F /* JeuxListeView.swift in Sources */,
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
 				B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */,
 				B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */,
 				F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */,
+				F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
