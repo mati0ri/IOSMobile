@@ -36,54 +36,30 @@ struct PlanningView: View {
     
     var body: some View{
         
-        VStack{
+        //VStack{
             
-                VStack(alignment: .center) {
+                VStack {
                     if !affectations.isEmpty {
                         
                         if !saturdayAffectations.isEmpty {
-                            Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                            List {
-                                ForEach(saturdayAffectations, id: \.id) { affectation in
-                                    NavigationLink(destination: AffectationView(affectation: affectation)) {
-                                        if affectation.affectation.horaire.jour == "Samedi" {
-                                            if affectation.affectation.listePostes.count > 1 {
-                                                VStack {
-                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                    Text("Poste à définir")
-                                                }
-                                            } else {
-                                                VStack {
-                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                    Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
-                                                    if affectation.affectation.zone != nil {
-                                                        Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                            VStack {
+                                Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                                List {
+                                    ForEach(saturdayAffectations, id: \.id) { affectation in
+                                        NavigationLink(destination: AffectationView(affectation: affectation)) {
+                                            if affectation.affectation.horaire.jour == "Samedi" {
+                                                if affectation.affectation.listePostes.count > 1 {
+                                                    VStack {
+                                                        Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                        Text("Poste à définir")
                                                     }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }.multilineTextAlignment(.center)
-                            }
-                        }
-                        
-                        if !sundayAffectations.isEmpty {
-                            Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                            List {
-                                ForEach(sundayAffectations, id: \.id) { affectation in
-                                    NavigationLink(destination: AffectationView(affectation: affectation)) {
-                                        if affectation.affectation.horaire.jour == "Dimanche" {
-                                            if affectation.affectation.listePostes.count > 1 {
-                                                VStack {
-                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                    Text("Poste à définir")
-                                                }
-                                            } else {
-                                                VStack {
-                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                    Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
-                                                    if affectation.affectation.zone != nil {
-                                                        Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                                } else {
+                                                    VStack {
+                                                        Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                        Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
+                                                        if affectation.affectation.zone != nil {
+                                                            Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                                        }
                                                     }
                                                 }
                                             }
@@ -92,14 +68,45 @@ struct PlanningView: View {
                                 }
                             }
                         }
+                            
+                        
+                        if !sundayAffectations.isEmpty {
+                            VStack {
+                                Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                                List {
+                                    ForEach(sundayAffectations, id: \.id) { affectation in
+                                        NavigationLink(destination: AffectationView(affectation: affectation)) {
+                                            if affectation.affectation.horaire.jour == "Dimanche" {
+                                                if affectation.affectation.listePostes.count > 1 {
+                                                    VStack {
+                                                        Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                        Text("Poste à définir")
+                                                    }
+                                                } else {
+                                                    VStack {
+                                                        Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                        Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
+                                                        if affectation.affectation.zone != nil {
+                                                            Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                            
                         
                     } else {
                         Text("Chargement en cours...")
                     }
                     
-                }.navigationTitle("Planning")
+                //}.navigationTitle("Planning")
             
-        }.onAppear {
+        }.navigationTitle("Planning")
+            .onAppear {
             planningViewModel.getAffectationsByUserId { fetchedAffectations in
                 if let fetchedAffectations = fetchedAffectations {
                     self.affectations = fetchedAffectations

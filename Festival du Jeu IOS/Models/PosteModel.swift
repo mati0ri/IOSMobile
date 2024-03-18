@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PosteModel: Decodable {
-
+    
+    var id = UUID();
     let intitule: String
     let details: String
     let referents: [ReferentModel]?
