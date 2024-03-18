@@ -43,7 +43,6 @@ class PlanningViewModel: ObservableObject {
         }
         
         let url = URL(string: "\(planningURL)\(userId)")!
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         //request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
