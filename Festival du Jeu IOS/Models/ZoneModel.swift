@@ -10,7 +10,7 @@ import SwiftUI
 struct ZoneModel: Decodable {
     
     let nom: String
-    let jeux: [JeuModel]
+    let jeux: [JeuModel]?
     
     init(nom: String, jeux: [JeuModel]) {
         self.nom = nom

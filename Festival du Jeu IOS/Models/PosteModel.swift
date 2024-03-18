@@ -11,8 +11,8 @@ struct PosteModel: Decodable {
 
     let intitule: String
     let details: String
-    let referents: [ReferentModel]
-    let zones: [ZoneModel]
+    let referents: [ReferentModel]?
+    let zones: [ZoneModel]?
     let nombrePlacesMin: Int
     let nombrePlacesMax: Int?
     

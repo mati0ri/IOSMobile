@@ -9,7 +9,7 @@ import Foundation
 
 class PlanningViewModel: ObservableObject {
     
-    private let planningURL = "https://backawi.onrender.com/api/user/"
+    private let planningURL = "https://backawi.onrender.com/api/affectation/user/"
     
     func getUserIdFromToken() -> String? {
         guard let token = UserDefaults.standard.string(forKey: "token") else {
@@ -19,18 +19,20 @@ class PlanningViewModel: ObservableObject {
         
         let tokenParts = token.components(separatedBy: ".")
         guard tokenParts.count >= 2,
-              let payloadData = Data(base64Encoded: tokenParts[1], options: .ignoreUnknownCharacters) else {
+              let payloadData = Data(base64Encoded: tokenParts[1] + paddingIfNeeded(tokenParts[1])),
+              let payload = try? JSONSerialization.jsonObject(with: payloadData, options: []) as? [String: Any],
+              let userId = payload["id"] as? String else {
             print("Invalid token format")
             return nil
         }
         
-        do {
-            let payload = try JSONSerialization.jsonObject(with: payloadData, options: []) as? [String: Any]
-            return payload?["id"] as? String
-        } catch {
-            print("Error decoding token payload: \(error)")
-            return nil
-        }
+        return userId
+    }
+    
+    private func paddingIfNeeded(_ base64String: String) -> String {
+        let paddingLength = base64String.count % 4
+        if paddingLength == 0 { return "" }
+        return String(repeating: "=", count: 4 - paddingLength)
     }
 
     func getAffectationsByUserId(completion: @escaping ([AffectationViewModel]?) -> Void) {
@@ -40,7 +42,8 @@ class PlanningViewModel: ObservableObject {
             return
         }
         
-        let url = URL(string: "\(planningURL)/\(userId)")!
+        let url = URL(string: "\(planningURL)\(userId)")!
+        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         //request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")

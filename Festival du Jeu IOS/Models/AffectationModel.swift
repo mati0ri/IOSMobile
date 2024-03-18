@@ -10,13 +10,13 @@ import SwiftUI
 struct AffectationModel: Decodable {
     
     let listePostes: [PosteModel]
-    let user: UserModel
+    let user: UserModel?
     let horaire: HoraireModel
     let zone: ZoneModel?
     var confirmation: Bool
     let posteEnAttenteValidation: PosteModel?
     var flexible: Bool
-    var postesProposes: [PosteModel]
+    var postesProposes: [PosteModel]?
     
     init(listePostes: [PosteModel], user: UserModel, horaire: HoraireModel, zone: ZoneModel?, confirmation: Bool, posteEnAttenteValidation: PosteModel?, flexible: Bool, postesProposes: [PosteModel]) {
         self.listePostes = listePostes
