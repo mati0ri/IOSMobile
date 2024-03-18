@@ -32,6 +32,7 @@
 		F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D282BA5FE6C00B85A7F /* JeuViewModel.swift */; };
 		F8144D2B2BA5FE9400B85A7F /* JeuxListeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D2A2BA5FE9400B85A7F /* JeuxListeViewModel.swift */; };
 		F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */; };
+		F84926802BA8DAFB00D8F0A1 /* EquipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849267F2BA8DAFB00D8F0A1 /* EquipeViewModel.swift */; };
 		F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F02BA760C500DF731E /* SignInView.swift */; };
 		F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */; };
 		F8EB29D12BA8326A00E3B570 /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D02BA8326A00E3B570 /* PlanningView.swift */; };
@@ -92,6 +93,7 @@
 		F8144D282BA5FE6C00B85A7F /* JeuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuViewModel.swift; sourceTree = "<group>"; };
 		F8144D2A2BA5FE9400B85A7F /* JeuxListeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuxListeViewModel.swift; sourceTree = "<group>"; };
 		F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuModel.swift; sourceTree = "<group>"; };
+		F849267F2BA8DAFB00D8F0A1 /* EquipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeViewModel.swift; sourceTree = "<group>"; };
 		F8DF89F02BA760C500DF731E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		F8EB29D02BA8326A00E3B570 /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			children = (
 				F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */,
 				F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */,
+				F849267F2BA8DAFB00D8F0A1 /* EquipeViewModel.swift */,
 			);
 			path = Planning;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
 				F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */,
+				F84926802BA8DAFB00D8F0A1 /* EquipeViewModel.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

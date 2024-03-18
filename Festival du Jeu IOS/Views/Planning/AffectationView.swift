@@ -11,6 +11,10 @@ struct AffectationView: View {
     
     @ObservedObject public var affectation: AffectationViewModel
     
+    //@StateObject var affectationViewModel = AffectationViewModel(affectation: affectation)
+    @State private var equipe: [EquipeViewModel] = []
+
+    
     // Fonction pour convertir le format "plage_X_Y" en "Xh - Yh"
     private func formatPlageHoraire(_ plageHoraire: String) -> String {
         let components = plageHoraire.components(separatedBy: "_")
@@ -40,13 +44,6 @@ struct AffectationView: View {
                             .font(.title)
                             .multilineTextAlignment(.center)
                     }
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Equipe :").font(.headline)
-                        Divider()
-                            .padding(.vertical)
-                        Text("Détails du poste :").font(.headline)
-                        Text(poste.details)
-                    }
                 }
             } else {
                 let poste = affectation.affectation.listePostes.first
@@ -57,6 +54,9 @@ struct AffectationView: View {
                 }
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Equipe :").font(.headline)
+                    ForEach(equipe, id: \.id) { membre in
+                        Text("\(membre.membre.prenom) \(membre.membre.nom)")
+                    }
                     Divider()
                         .padding(.vertical)
                     Text("Détails du poste :").font(.headline)
@@ -72,6 +72,19 @@ struct AffectationView: View {
             }.foregroundColor(Color.red)
             
         }.padding()
+            .onAppear {
+                affectation.getUsersWithConfirmedAffectation(horaireId: affectation.affectation.horaire.id, posteId: affectation.affectation.listePostes.first!.id) { fetchedUsers in
+                    if let fetchedUsers = fetchedUsers {
+                        self.equipe = fetchedUsers
+                        print("Equipe récupérés avec succès :")
+                        for membre in fetchedUsers {
+                            print(membre)
+                        }
+                    } else {
+                        print("Erreur lors de la récupération des membres de l'équipe.")
+                    }
+                }
+            }
         
     }
     

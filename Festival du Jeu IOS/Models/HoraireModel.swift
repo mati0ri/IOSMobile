@@ -9,10 +9,12 @@ import SwiftUI
 
 struct HoraireModel: Decodable {
     
+    let id: String
     let jour: String
     let horaire: String
     
-    init(jour: String, horaire: String) {
+    init(id: String, jour: String, horaire: String) {
+        self.id = id
         self.jour = jour
         self.horaire = horaire
     }

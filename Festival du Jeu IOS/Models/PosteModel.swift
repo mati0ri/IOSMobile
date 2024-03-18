@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PosteModel: Decodable {
     
-    var id = UUID();
+    var id: String
     let intitule: String
     let details: String
     let referents: [ReferentModel]?
@@ -17,7 +17,8 @@ struct PosteModel: Decodable {
     let nombrePlacesMin: Int
     let nombrePlacesMax: Int?
     
-    init(intitule: String, details: String, referents: [ReferentModel], zones: [ZoneModel], nombrePlacesMin: Int, nombrePlacesMax: Int?) {
+    init(id: String, intitule: String, details: String, referents: [ReferentModel], zones: [ZoneModel], nombrePlacesMin: Int, nombrePlacesMax: Int?) {
+        self.id = id
         self.intitule = intitule
         self.details = details
         self.referents = referents

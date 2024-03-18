@@ -9,12 +9,13 @@ import SwiftUI
 
 struct UserModel: Decodable {
     
+    let id: String
     let nom: String
     let prenom: String
     let email: String
     let motDePasse: String
-    let association: String
-    let hebergement: String
+    let association: String?
+    let choixHebergement: String
     let nombreEditionPrecedente: Int?
     let role: String
     let pseudo: String
@@ -24,13 +25,14 @@ struct UserModel: Decodable {
     let vegetarien: Bool
     let jeuPrefere: String?
     
-    init(nom: String, prenom: String, email: String, motDePasse: String, association: String, hebergement: String, nombreEditionPrecedente: Int?, role: String, pseudo: String, telephone: String, photoDeProfil: String, tailleTShirt: String, vegetarien: Bool, jeuPrefere: String?) {
+    init(id: String, nom: String, prenom: String, email: String, motDePasse: String, association: String, choixHebergement: String, nombreEditionPrecedente: Int?, role: String, pseudo: String, telephone: String, photoDeProfil: String, tailleTShirt: String, vegetarien: Bool, jeuPrefere: String?) {
+        self.id = id
         self.nom = nom
         self.prenom = prenom
         self.email = email
         self.motDePasse = motDePasse
         self.association = association
-        self.hebergement = hebergement
+        self.choixHebergement = choixHebergement
         self.nombreEditionPrecedente = nombreEditionPrecedente
         self.role = role
         self.pseudo = pseudo
