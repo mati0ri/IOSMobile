@@ -18,14 +18,16 @@ struct Footer: View {
                     // Code pour gérer la navigation vers la page 1
                 }.foregroundColor(Colors.BleuFonce)
                 Spacer()
-                Button("Page 2") {
-                    // Code pour gérer la navigation vers la page 2
+                
+                NavigationLink(destination: PlanningView()) {
+                    Text("Planning")
                 }.foregroundColor(Colors.BleuFonce)
+                
                 Spacer()
                 
-                    NavigationLink(destination: JeuxListeView()) {
-                        Text("Jeux")
-                    }.foregroundColor(Colors.BleuFonce)
+                NavigationLink(destination: JeuxListeView()) {
+                    Text("Jeux")
+                }.foregroundColor(Colors.BleuFonce)
                 
                 Spacer()
             }

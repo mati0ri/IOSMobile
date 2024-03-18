@@ -25,55 +25,53 @@ struct JeuView: View {
                     .multilineTextAlignment(.center)
             }
             
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        
+            VStack(alignment: .leading, spacing: 10) {
 
-                        Text("Editeur: \(jeu.editeur)")
-                            .foregroundColor(.secondary)
+                Text("Editeur: \(jeu.editeur)")
+                    .foregroundColor(.secondary)
 
-                        Text("Type: \(jeu.type)")
-                            .foregroundColor(.secondary)
+                Text("Type: \(jeu.type)")
+                    .foregroundColor(.secondary)
 
-                        Divider()
-                            .padding(.vertical)
+                Divider()
+                    .padding(.vertical)
 
-                        Text("Description:")
-                            .font(.headline)
+                Text("Description:")
+                    .font(.headline)
 
-                        Text("La description du jeu est manquante.")
-                            .padding(.top, 5)
+                Text("La description du jeu est manquante.")
+                    .padding(.top, 5)
 
-                        Divider()
-                            .padding(.vertical)
+                Divider()
+                    .padding(.vertical)
 
-                        if let noticeURL = URL(string: jeu.notice) {
-                            HStack {
-                                Image(systemName: "link")
-                                    .foregroundColor(.blue)
+                if let noticeURL = URL(string: jeu.notice) {
+                    HStack {
+                        Image(systemName: "link")
+                            .foregroundColor(.blue)
 
-                                Link("Lien Notice", destination: noticeURL)
-                                    .foregroundColor(.blue)
-                            }
-                        } else {
-                            Text("Notice: N/A")
-                                .foregroundColor(.secondary)
-                        }
-
-                        if let videoURL = URL(string: jeu.video) {
-                            HStack {
-                                Image(systemName: "play.rectangle")
-                                    .foregroundColor(.blue)
-
-                                Link("Lien vidéo", destination: videoURL)
-                                    .foregroundColor(.blue)
-                            }
-                        } else {
-                            Text("Lien vidéo: N/A")
-                                .foregroundColor(.secondary)
-                        }
-                    }.padding()
-
+                        Link("Lien Notice", destination: noticeURL)
+                            .foregroundColor(.blue)
+                    }
+                } else {
+                    Text("Notice: N/A")
+                        .foregroundColor(.secondary)
                 }
-            }
+
+                if let videoURL = URL(string: jeu.video) {
+                    HStack {
+                        Image(systemName: "play.rectangle")
+                            .foregroundColor(.blue)
+
+                        Link("Lien vidéo", destination: videoURL)
+                            .foregroundColor(.blue)
+                    }
+                } else {
+                    Text("Lien vidéo: N/A")
+                        .foregroundColor(.secondary)
+                }
+            }.padding()
+
         }
+    }
+}

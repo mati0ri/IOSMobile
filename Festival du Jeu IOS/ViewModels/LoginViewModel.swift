@@ -40,7 +40,10 @@ class LoginViewModel: ObservableObject {
                 }
                 
                 if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                    self?.isLoggedIn = true
+                    if let token = try? JSONDecoder().decode(Token.self, from: data) {
+                        UserDefaults.standard.set(token.accessToken, forKey: "token")
+                        self?.isLoggedIn = true
+                    }
                 } else {
                     if let json = try? JSONSerialization.jsonObject(with: data, options: []),
                        let dictionary = json as? [String: Any],
@@ -59,4 +62,8 @@ class LoginViewModel: ObservableObject {
         self.alertTitle = title
         self.alertMessage = message
     }
+}
+
+struct Token: Codable {
+    let accessToken: String
 }
