@@ -34,6 +34,16 @@
 		F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */; };
 		F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F02BA760C500DF731E /* SignInView.swift */; };
 		F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */; };
+		F8EB29D12BA8326A00E3B570 /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D02BA8326A00E3B570 /* PlanningView.swift */; };
+		F8EB29D32BA8389700E3B570 /* AffectationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D22BA8389700E3B570 /* AffectationModel.swift */; };
+		F8EB29D52BA839F200E3B570 /* PosteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D42BA839F200E3B570 /* PosteModel.swift */; };
+		F8EB29D72BA83A8D00E3B570 /* ReferentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D62BA83A8D00E3B570 /* ReferentModel.swift */; };
+		F8EB29D92BA83AE600E3B570 /* HoraireModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29D82BA83AE600E3B570 /* HoraireModel.swift */; };
+		F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29DA2BA83BA200E3B570 /* UserModel.swift */; };
+		F8EB29DD2BA83C0500E3B570 /* ZoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */; };
+		F8EB29E02BA83DF600E3B570 /* PlanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */; };
+		F8EB29E22BA847DD00E3B570 /* AffectationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29E12BA847DD00E3B570 /* AffectationView.swift */; };
+		F8EB29E42BA8480100E3B570 /* AffectationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +94,16 @@
 		F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuModel.swift; sourceTree = "<group>"; };
 		F8DF89F02BA760C500DF731E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		F8EB29D02BA8326A00E3B570 /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
+		F8EB29D22BA8389700E3B570 /* AffectationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationModel.swift; sourceTree = "<group>"; };
+		F8EB29D42BA839F200E3B570 /* PosteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteModel.swift; sourceTree = "<group>"; };
+		F8EB29D62BA83A8D00E3B570 /* ReferentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferentModel.swift; sourceTree = "<group>"; };
+		F8EB29D82BA83AE600E3B570 /* HoraireModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoraireModel.swift; sourceTree = "<group>"; };
+		F8EB29DA2BA83BA200E3B570 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneModel.swift; sourceTree = "<group>"; };
+		F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningViewModel.swift; sourceTree = "<group>"; };
+		F8EB29E12BA847DD00E3B570 /* AffectationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationView.swift; sourceTree = "<group>"; };
+		F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +239,7 @@
 		B1B050672BA09AE400FD010A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F8EB29DE2BA83DE000E3B570 /* Planning */,
 				F8144D272BA5FE5A00B85A7F /* Jeux */,
 				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
 				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
@@ -231,6 +252,7 @@
 		B1B050682BA09B8A00FD010A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F8EB29CF2BA8323000E3B570 /* Planning */,
 				F8144D222BA5FDFF00B85A7F /* Jeux */,
 				B1B0506B2BA09C8800FD010A /* Auth */,
 				B1B050862BA497FD00FD010A /* WelcomeView.swift */,
@@ -279,8 +301,32 @@
 			isa = PBXGroup;
 			children = (
 				F8144D2D2BA5FEF100B85A7F /* JeuModel.swift */,
+				F8EB29D22BA8389700E3B570 /* AffectationModel.swift */,
+				F8EB29D42BA839F200E3B570 /* PosteModel.swift */,
+				F8EB29D62BA83A8D00E3B570 /* ReferentModel.swift */,
+				F8EB29D82BA83AE600E3B570 /* HoraireModel.swift */,
+				F8EB29DA2BA83BA200E3B570 /* UserModel.swift */,
+				F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F8EB29CF2BA8323000E3B570 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				F8EB29D02BA8326A00E3B570 /* PlanningView.swift */,
+				F8EB29E12BA847DD00E3B570 /* AffectationView.swift */,
+			);
+			path = Planning;
+			sourceTree = "<group>";
+		};
+		F8EB29DE2BA83DE000E3B570 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */,
+				F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */,
+			);
+			path = Planning;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,23 +459,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EB29DD2BA83C0500E3B570 /* ZoneModel.swift in Sources */,
 				F8144D2B2BA5FE9400B85A7F /* JeuxListeViewModel.swift in Sources */,
 				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
 				F8144D212BA5F5FA00B85A7F /* Colors.swift in Sources */,
 				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
+				F8EB29E42BA8480100E3B570 /* AffectationViewModel.swift in Sources */,
+				F8EB29D92BA83AE600E3B570 /* HoraireModel.swift in Sources */,
 				B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */,
 				B1B050792BA1A6C900FD010A /* APIErrors.swift in Sources */,
 				F8144D1F2BA5F35200B85A7F /* Footer.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
+				F8EB29D52BA839F200E3B570 /* PosteModel.swift in Sources */,
 				F8144D242BA5FE1000B85A7F /* JeuView.swift in Sources */,
 				F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */,
 				F8144D262BA5FE3700B85A7F /* JeuxListeView.swift in Sources */,
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
+				F8EB29D12BA8326A00E3B570 /* PlanningView.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
+				F8EB29E22BA847DD00E3B570 /* AffectationView.swift in Sources */,
+				F8EB29D32BA8389700E3B570 /* AffectationModel.swift in Sources */,
 				B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */,
 				B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */,
+				F8EB29D72BA83A8D00E3B570 /* ReferentModel.swift in Sources */,
+				F8EB29E02BA83DF600E3B570 /* PlanningViewModel.swift in Sources */,
 				F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */,
 				F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */,
+				F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
