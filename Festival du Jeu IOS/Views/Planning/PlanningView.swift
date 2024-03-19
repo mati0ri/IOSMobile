@@ -18,12 +18,30 @@ struct PlanningView: View {
     
     @State private var aucuneAffectation = false
     
+    private func extractHour(from plageHoraire: String) -> Int? {
+        let components = plageHoraire.components(separatedBy: "_")
+        if components.count == 3, let debut = Int(components[1]) {
+            return debut
+        }
+        return nil
+    }
+    
     // Fonction pour diviser les affectations en affectations de samedi et dimanche
     private func splitAffectationsByDay() {
+        
+        affectations.sort { (affectation1, affectation2) -> Bool in
+            // Comparaison des horaires pour le tri
+            if let debut1 = extractHour(from: affectation1.affectation.horaire.horaire),
+               let debut2 = extractHour(from: affectation2.affectation.horaire.horaire) {
+                return debut1 < debut2
+            }
+            return false
+        }
+        
         saturdayAffectations = affectations.filter { $0.affectation.horaire.jour == "Samedi" }
         sundayAffectations = affectations.filter { $0.affectation.horaire.jour == "Dimanche" }
-        print("Samedi : \(saturdayAffectations)")
-        print("Dimanche : \(sundayAffectations)")
+        print("Samedi : \(saturdayAffectations.first!.affectation.horaire.horaire)")
+        print("Dimanche : \(sundayAffectations.first!.affectation.horaire.horaire)")
     }
     
     // Fonction pour convertir le format "plage_X_Y" en "Xh - Yh"
