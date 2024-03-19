@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AffectationView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject public var affectation: AffectationViewModel
     
     //@StateObject var affectationViewModel = AffectationViewModel(affectation: affectation)
@@ -29,7 +31,7 @@ struct AffectationView: View {
         self.affectation = affectation
     }
     
-    var body: some View{
+    var body: some View {
         
         VStack {
             
@@ -68,7 +70,17 @@ struct AffectationView: View {
             Spacer()
             
             Button("Se désister") {
-                print("Se désister")
+                affectation.deleteAffectation(affectationId: affectation.affectation.id) { error in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            print("Erreur lors de la suppression : \(error)")
+                        } else {
+                            print("Suppression réussie")
+                            // Simuler le retour en arrière
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                    }
             }.foregroundColor(Color.red)
             
         }.padding()

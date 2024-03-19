@@ -9,7 +9,9 @@ import SwiftUI
 
 class AffectationViewModel: ObservableObject {
     
+    
     private let equipeURL = "https://backawi.onrender.com/api/affectation/confirmed/"
+    private let affectationURL = "https://backawi.onrender.com/api/affectation/"
     
     let id = UUID();
     var affectation : AffectationModel
@@ -21,7 +23,6 @@ class AffectationViewModel: ObservableObject {
     func getUsersWithConfirmedAffectation(horaireId: String, posteId: String, completion: @escaping ([EquipeViewModel]?) -> Void) {
         
         let url = URL(string: "\(equipeURL)\(horaireId)/\(posteId)")!
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -35,9 +36,7 @@ class AffectationViewModel: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
                 do {
                     let users = try JSONDecoder().decode([UserModel].self, from: data)
-                    print("Users : \(users)")
                     let equipe = users.map { EquipeViewModel(membre: $0)}
-                    print("Equipe : \(equipe)")
                     completion(equipe)
                 } catch {
                     print("Error decoding JSON: \(error.localizedDescription)")
@@ -52,6 +51,29 @@ class AffectationViewModel: ObservableObject {
         task.resume()
     }
     
+    func deleteAffectation(affectationId: String, completion: @escaping (Error?) -> Void) {
+        let url = URL(string: "\(affectationURL)\(affectationId)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
+                let error = NSError(domain: "HTTPError", code: statusCode, userInfo: nil)
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }
+        task.resume()
+    }
     
     
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AffectationModel: Decodable {
     
+    let id: String
     let listePostes: [PosteModel]
     let user: UserModel?
     let horaire: HoraireModel
@@ -18,7 +19,8 @@ struct AffectationModel: Decodable {
     var flexible: Bool
     var postesProposes: [PosteModel]?
     
-    init(listePostes: [PosteModel], user: UserModel, horaire: HoraireModel, zone: ZoneModel?, confirmation: Bool, posteEnAttenteValidation: PosteModel?, flexible: Bool, postesProposes: [PosteModel]) {
+    init(id: String, listePostes: [PosteModel], user: UserModel, horaire: HoraireModel, zone: ZoneModel?, confirmation: Bool, posteEnAttenteValidation: PosteModel?, flexible: Bool, postesProposes: [PosteModel]) {
+        self.id = id
         self.listePostes = listePostes
         self.user = user
         self.horaire = horaire
