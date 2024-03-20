@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct UserModel: Decodable {
+struct UserModel: Codable {
     
     let id: String
-    let nom: String
-    let prenom: String
-    let email: String
+    var nom: String
+    var prenom: String
+    var email: String
     let motDePasse: String
-    let association: String?
-    let choixHebergement: String
-    let nombreEditionPrecedente: Int?
-    let role: String
-    let pseudo: String
-    let telephone: String
-    let photoDeProfil: String
-    let tailleTShirt: String
-    let vegetarien: Bool
-    let jeuPrefere: String?
+    var association: String?
+    var choixHebergement: String
+    var nombreEditionPrecedente: Int?
+    var role: String
+    var pseudo: String
+    var telephone: String
+    var photoDeProfil: String
+    var tailleTShirt: String
+    var vegetarien: Bool
+    var jeuPrefere: String?
     
     init(id: String, nom: String, prenom: String, email: String, motDePasse: String, association: String, choixHebergement: String, nombreEditionPrecedente: Int?, role: String, pseudo: String, telephone: String, photoDeProfil: String, tailleTShirt: String, vegetarien: Bool, jeuPrefere: String?) {
         self.id = id

@@ -30,6 +30,10 @@ struct Footer: View {
                 }.foregroundColor(Colors.BleuFonce)
                 
                 Spacer()
+                
+                NavigationLink(destination: ProfileView()) {
+                    Text("Profil")
+                }.foregroundColor(Colors.BleuFonce)
             }
             .padding()
             .background(Colors.VertFonce)
