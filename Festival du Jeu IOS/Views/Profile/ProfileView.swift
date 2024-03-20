@@ -15,8 +15,10 @@ struct ProfileView: View {
         VStack {
             if viewModel.isLoading {
                 ProgressView("Chargement du profil...")
+
             } else if let profileData = viewModel.profileData {
                 ScrollView {
+                    Spacer(minLength: 90)
                     VStack(alignment: .center, spacing: 20) {
                         // Bloc pour l'image de profil
                         AsyncImage(url: URL(string: profileData.photoDeProfil)) { image in
@@ -38,31 +40,35 @@ struct ProfileView: View {
 //                        Divider()
                         
                         VStack(alignment: .center, spacing: 20) {
-                                            // Bloc pour l'image de profil
-                                            // ... Votre code existant pour l'image ...
                             CardView(title: "Email", detail: profileData.email)
                             CardView(title: "Pseudo", detail: profileData.pseudo)
                             CardView(title: "Téléphone", detail: profileData.telephone)
                             CardView(title: "Taille T-Shirt", detail: profileData.tailleTShirt)
-                            if let association = profileData.association {
-                                if association != "AUCUNE" {
-                                    CardView(title: "Association", detail: association)}
-                                }
                             
-                                
-                                if let nombreEditionPrecedente = profileData.nombreEditionPrecedente {
-                                    CardView(title: "Nombre d'éditions précédentes", detail: String(nombreEditionPrecedente))
-                                }
+                            if let association = profileData.association {
+                                if association != "AUCUNE" && association != "" {
+                                    CardView(title: "Association", detail: association)}
+                            }
                                 
                             CardView(title: "Végétarien", detail: profileData.vegetarien ? "Oui" : "Non")
 
-                                if let jeuPrefere = profileData.jeuPrefere {
+                            if let jeuPrefere = profileData.jeuPrefere {
+                                if jeuPrefere != "" {
                                     CardView(title: "Jeu préféré", detail:jeuPrefere)
                                 }
                             }
-                                        .padding()
+                            
+                            if let nombreEditionPrecedente = profileData.nombreEditionPrecedente {
+                                if nombreEditionPrecedente != 0 {
+                                    CardView(title: "Éditions précédentes", detail: String(nombreEditionPrecedente))
+                                }
+                            }
+                        }
+                        
+                    .padding()
                     }
                     .padding()
+                    
                 }
             } else if let errorMessage = viewModel.errorMessage {
                 Text("Erreur: \(errorMessage)")
@@ -76,15 +82,16 @@ struct ProfileView: View {
         }
         .navigationTitle("Profil")
         .padding()
+        .background(Color.gray.opacity(0.1))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 
 struct ProfileEditView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    @Environment(\.presentationMode) var presentationMode // Ajout pour gérer la fermeture de la vue
+    @Environment(\.presentationMode) var presentationMode
 
-    // Propriétés temporaires pour l'édition de chaque attribut
     @State private var tempNom: String = ""
     @State private var tempPrenom: String = ""
     @State private var tempEmail: String = ""
@@ -148,10 +155,20 @@ struct ProfileEditView: View {
                     }
                                         
                     HStack {
-                        Text("Nombre d'éditions précédentes")
+                        Text("Éditions précédentes")
                         Spacer()
-                                            TextField("Nombre", value: $tempNombreEditionPrecedente, formatter: NumberFormatter())
-                                                .keyboardType(.numberPad)
+                        TextField("Nombre", text: Binding<String>(
+                            get: { String(tempNombreEditionPrecedente ?? 0) },
+                            set: {
+                                if let value = NumberFormatter().number(from: $0) {
+                                    tempNombreEditionPrecedente = value.intValue
+                                } else {
+                                    tempNombreEditionPrecedente = nil
+                                }
+                            }
+                        ))
+                        .keyboardType(.numberPad)
+
                                         }
                                      
                     HStack {
@@ -176,7 +193,11 @@ struct ProfileEditView: View {
                     tempTelephone = profileData.telephone
                     tempTailleTShirt = profileData.tailleTShirt
                     tempPhotoDeProfil = profileData.photoDeProfil
-                    tempAssociation = profileData.association ?? ""
+                    if profileData.association == "AUCUNE" {
+                        tempAssociation = ""
+                    } else {
+                        tempAssociation = profileData.association ?? ""
+                    }
                     tempNombreEditionPrecedente = profileData.nombreEditionPrecedente
                     tempVegetarien = profileData.vegetarien
                     tempJeuPrefere = profileData.jeuPrefere ?? ""
@@ -220,8 +241,9 @@ struct CardView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.white)
         .cornerRadius(10)
-        .shadow(radius: 2)
         .padding(.horizontal)
+        .shadow(radius: 2)
+
     }
 }
 
