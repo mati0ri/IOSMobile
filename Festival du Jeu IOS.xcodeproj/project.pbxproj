@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B182BFBF2BA9EFC500A4E568 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */; };
+		B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */; };
+		B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */; };
+		B182BFC72BA9F92500A4E568 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC62BA9F92500A4E568 /* TokenManager.swift */; };
 		B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050362BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift */; };
 		B1B050392BA0970E00FD010A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050382BA0970E00FD010A /* ContentView.swift */; };
 		B1B0503B2BA0971000FD010A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B0503A2BA0971000FD010A /* Assets.xcassets */; };
@@ -65,6 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B182BFC62BA9F92500A4E568 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		B1B050332BA0970E00FD010A /* Festival du Jeu IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Festival du Jeu IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B050362BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival_du_Jeu_IOSApp.swift; sourceTree = "<group>"; };
 		B1B050382BA0970E00FD010A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +141,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B182BFBD2BA9EFB600A4E568 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B182BFC02BA9F2E000A4E568 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B182BFC52BA9F8E000A4E568 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B182BFC62BA9F92500A4E568 /* TokenManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B1B0502A2BA0970E00FD010A = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +188,7 @@
 		B1B050352BA0970E00FD010A /* Festival du Jeu IOS */ = {
 			isa = PBXGroup;
 			children = (
+				B182BFC52BA9F8E000A4E568 /* Utils */,
 				F8144D2C2BA5FEE000B85A7F /* Models */,
 				B1B050682BA09B8A00FD010A /* Views */,
 				B1B050672BA09AE400FD010A /* ViewModels */,
@@ -241,6 +274,7 @@
 		B1B050672BA09AE400FD010A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B182BFC02BA9F2E000A4E568 /* Profile */,
 				F8EB29DE2BA83DE000E3B570 /* Planning */,
 				F8144D272BA5FE5A00B85A7F /* Jeux */,
 				B1B050722BA19E8900FD010A /* BenevoleVM.swift */,
@@ -254,6 +288,7 @@
 		B1B050682BA09B8A00FD010A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B182BFBD2BA9EFB600A4E568 /* Profile */,
 				F8EB29CF2BA8323000E3B570 /* Planning */,
 				F8144D222BA5FDFF00B85A7F /* Jeux */,
 				B1B0506B2BA09C8800FD010A /* Auth */,
@@ -309,6 +344,7 @@
 				F8EB29D82BA83AE600E3B570 /* HoraireModel.swift */,
 				F8EB29DA2BA83BA200E3B570 /* UserModel.swift */,
 				F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */,
+				B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -488,11 +524,15 @@
 				F8EB29E02BA83DF600E3B570 /* PlanningViewModel.swift in Sources */,
 				F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */,
 				F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */,
+				B182BFBF2BA9EFC500A4E568 /* ProfileView.swift in Sources */,
 				F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
+				B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */,
+				B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
 				F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */,
+				B182BFC72BA9F92500A4E568 /* TokenManager.swift in Sources */,
 				F84926802BA8DAFB00D8F0A1 /* EquipeViewModel.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
 			);
