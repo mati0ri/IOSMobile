@@ -10,7 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @StateObject private var viewModel = WelcomeViewModel()
     @StateObject private var nextAffectationViewModel = NextAffectationViewModel()
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,19 +21,19 @@ struct WelcomeView: View {
                 if viewModel.isLoading || nextAffectationViewModel.isLoading {
                     ProgressView()
                 } else {
-                    // Use the new NextAffectationCard view to show next assignment
                     NextAffectationCard(affectation: nextAffectationViewModel.nextAffectation)
 
-                    // Display the list of "soirées découvertes"
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 15) {
-                            ForEach(viewModel.soireesDecouvertes) { soiree in
-                                SoireeDecouverteCard(soiree: soiree)
-                            }
-                        }
-                        .padding()
-                    }
-                    .frame(height: 200)
+                                        HStack(spacing: 15) {
+                                            ForEach(viewModel.soireesDecouvertes) { soiree in
+                                                NavigationLink(destination: SoireeDetailView(soiree: soiree, viewModel: viewModel)) {
+                                                    SoireeDecouverteCard(soiree: soiree)
+                                                }
+                                            }
+                                        }
+                                        .padding()
+                                    }
+                                    .frame(height: 200)
                 }
 
                 Footer()
@@ -48,6 +48,7 @@ struct WelcomeView: View {
 
 
 
+
 struct SoireeDecouverteCard: View {
     let soiree: SoireeDecouverteModel
 
@@ -55,15 +56,16 @@ struct SoireeDecouverteCard: View {
         VStack {
             Text(soiree.nom)
                 .fontWeight(.bold)
-            Text("Lieu: \(soiree.lieu)")
-            Text(soiree.estInscrit ? "Inscrit" : "Non inscrit") // Display registration status
+                .foregroundColor(Color.black)
+            Text("\(soiree.lieu)")
+                .foregroundColor(Colors.GrisFonce)
+            
+            Text(soiree.estInscrit ? "Inscrit" : "Non inscrit")
                 .foregroundColor(soiree.estInscrit ? .green : .red)
-            // Add additional details and styling...
         }
         .frame(width: 200, height: 100)
         .background(Color.gray.opacity(0.1))
         .cornerRadius(12)
-        // Further customize your card view here...
     }
 }
 
@@ -91,6 +93,46 @@ struct NextAffectationCard: View {
         }
     }
 }
+
+
+struct SoireeDetailView: View {
+    let soiree: SoireeDecouverteModel
+    @ObservedObject var viewModel: WelcomeViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text(soiree.nom)
+                .font(.title)
+                .fontWeight(.bold)
+            Text("Date: \(soiree.date)")
+            Text("Lieu: \(soiree.lieu)")
+            
+            Text("Jeux:")
+            ForEach(soiree.jeux) { jeu in
+                Text(jeu.nom)
+            }
+
+            Spacer()
+            
+            if soiree.isUserRegistered(userId: TokenManager.getUserIdFromToken() ?? "pas de token") {
+                            Button("Se désister") {
+                                viewModel.deregisterFromSoiree(userId: TokenManager.getUserIdFromToken() ?? "pas de token", soireeId: soiree.id)
+                            }
+                            .foregroundColor(.red)
+                        } else {
+                            Button("S'inscrire") {
+                                viewModel.registerForSoiree(userId: TokenManager.getUserIdFromToken() ?? "pas de token", soireeId: soiree.id)
+                            }
+                            .foregroundColor(.green)
+                        }
+        }
+        .padding()
+        // Removed the .navigationBarItems modifier with the "Fermer" button
+    }
+}
+
+
+
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {

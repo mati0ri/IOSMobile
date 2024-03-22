@@ -43,4 +43,48 @@ class WelcomeViewModel: ObservableObject {
             })
             .store(in: &subscriptions)
     }
+    
+    func registerForSoiree(userId: String, soireeId: String) {
+        print("registration")
+        let urlString = "https://backawi.onrender.com/api/soireeDecouverte/\(soireeId)/inscrire"
+        print(urlString)
+        let requestBody = ["userId": userId]
+        print(userId)
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
+            print("Error: Cannot create JSON from requestBody")
+            return
+        }
+
+        performPostRequest(urlString: urlString, requestBody: jsonData) { success, error in
+            if success {
+                // Handle successful registration
+                print("Successfully registered for the soiree")
+            } else {
+                // Handle error
+                print("Failed to register for the soiree: \(String(describing: error))")
+            }
+        }
+    }
+
+    func deregisterFromSoiree(userId: String, soireeId: String) {
+        let urlString = "https://backawi.onrender.com/api/soireeDecouverte/\(soireeId)/desinscrire"
+        let requestBody = ["userId": userId]
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
+            print("Error: Cannot create JSON from requestBody")
+            return
+        }
+
+        performPostRequest(urlString: urlString, requestBody: jsonData) { success, error in
+            if success {
+                // Handle successful deregistration
+                print("Successfully deregistered from the soiree")
+            } else {
+                // Handle error
+                print("Failed to deregister from the soiree: \(String(describing: error))")
+            }
+        }
+    }
+
 }

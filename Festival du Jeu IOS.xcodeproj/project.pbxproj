@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B117BC8B2BADC7F3008B5CBD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B117BC8A2BADC7F3008B5CBD /* Requests.swift */; };
 		B182BFBF2BA9EFC500A4E568 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */; };
 		B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */; };
 		B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B117BC8A2BADC7F3008B5CBD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B117BC892BADC7D5008B5CBD /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B117BC8A2BADC7F3008B5CBD /* Requests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		B182BFBD2BA9EFB600A4E568 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		B1B050352BA0970E00FD010A /* Festival du Jeu IOS */ = {
 			isa = PBXGroup;
 			children = (
+				B117BC892BADC7D5008B5CBD /* Requests */,
 				B182BFC52BA9F8E000A4E568 /* Utils */,
 				F8144D2C2BA5FEE000B85A7F /* Models */,
 				B1B050682BA09B8A00FD010A /* Views */,
@@ -539,6 +550,7 @@
 				F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
+				B117BC8B2BADC7F3008B5CBD /* Requests.swift in Sources */,
 				B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */,
 				B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,

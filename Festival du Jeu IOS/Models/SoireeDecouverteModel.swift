@@ -28,4 +28,18 @@ struct SoireeDecouverteModel: Identifiable, Codable {
         let userId = TokenManager.getUserIdFromToken()
         return inscrits.contains { $0.id == userId }
     }
+    
+    func isUserRegistered(userId: String) -> Bool {
+            return self.inscrits.contains { $0.id == userId }
+        }
+
+        // Add or remove the registration status of the user
+    mutating func toggleRegistration(for userId: String) {
+            if isUserRegistered(userId: userId) {
+                self.inscrits.removeAll { $0.id == userId }
+            } else {
+                let newUser = Inscrit(id: userId, nom: "User Name") // Customize this as necessary
+                self.inscrits.append(newUser)
+            }
+        }
 }
