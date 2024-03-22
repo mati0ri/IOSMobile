@@ -14,9 +14,11 @@ struct Footer: View {
             Spacer()
             HStack {
                 Spacer()
-                Button("Page 1") {
-                    // Code pour gérer la navigation vers la page 1
+                
+                NavigationLink(destination: HebergementView()) {
+                    Text("Hebergement")
                 }.foregroundColor(Colors.BleuFonce)
+                
                 Spacer()
                 
                 NavigationLink(destination: PlanningView()) {
