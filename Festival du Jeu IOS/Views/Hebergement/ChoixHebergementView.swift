@@ -17,7 +17,7 @@ struct ChoixHebergementView: View {
     var body: some View {
         
         VStack {
-            NavigationLink(destination: ReservationView()) {
+            NavigationLink(destination: ReservationView(hebergement: hebergement, jour: jour, reste: reste)) {
                 VStack {
                     Text("Adresse: \(hebergement.adresse)")
                     if let reste = reste {
