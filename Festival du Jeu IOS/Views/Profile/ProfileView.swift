@@ -18,7 +18,7 @@ struct ProfileView: View {
 
             } else if let profileData = viewModel.profileData {
                 ScrollView {
-                    Spacer(minLength: 90)
+//                    Spacer(minLength: 50)
                     VStack(alignment: .center, spacing: 20) {
                         // Bloc pour l'image de profil
                         AsyncImage(url: URL(string: profileData.photoDeProfil)) { image in
@@ -82,8 +82,7 @@ struct ProfileView: View {
         }
         .navigationTitle("Profil")
         .padding()
-        .background(Color.gray.opacity(0.1))
-        .edgesIgnoringSafeArea(.all)
+
     }
 }
 
@@ -239,10 +238,10 @@ struct CardView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Colors.GrisTresClair)
         .cornerRadius(10)
         .padding(.horizontal)
-        .shadow(radius: 2)
+        .shadow(color: Colors.GrisTresClair, radius: 2)
 
     }
 }

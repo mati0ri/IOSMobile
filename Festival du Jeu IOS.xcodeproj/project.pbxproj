@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B117BC8B2BADC7F3008B5CBD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B117BC8A2BADC7F3008B5CBD /* Requests.swift */; };
 		B182BFBF2BA9EFC500A4E568 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */; };
 		B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */; };
 		B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */; };
 		B182BFC72BA9F92500A4E568 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFC62BA9F92500A4E568 /* TokenManager.swift */; };
+		B182BFCD2BAC9B7A00A4E568 /* SoireeDecouverteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFCC2BAC9B7A00A4E568 /* SoireeDecouverteModel.swift */; };
+		B182BFCF2BACA8A600A4E568 /* NextAffectationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFCE2BACA8A600A4E568 /* NextAffectationModel.swift */; };
+		B182BFD12BACA8C900A4E568 /* NextAffectationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B182BFD02BACA8C900A4E568 /* NextAffectationViewModel.swift */; };
 		B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050362BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift */; };
 		B1B050392BA0970E00FD010A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B050382BA0970E00FD010A /* ContentView.swift */; };
 		B1B0503B2BA0971000FD010A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1B0503A2BA0971000FD010A /* Assets.xcassets */; };
@@ -78,10 +82,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B117BC8A2BADC7F3008B5CBD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		B182BFBE2BA9EFC500A4E568 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		B182BFC32BA9F76100A4E568 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B182BFC62BA9F92500A4E568 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		B182BFCC2BAC9B7A00A4E568 /* SoireeDecouverteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoireeDecouverteModel.swift; sourceTree = "<group>"; };
+		B182BFCE2BACA8A600A4E568 /* NextAffectationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextAffectationModel.swift; sourceTree = "<group>"; };
+		B182BFD02BACA8C900A4E568 /* NextAffectationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextAffectationViewModel.swift; sourceTree = "<group>"; };
 		B1B050332BA0970E00FD010A /* Festival du Jeu IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Festival du Jeu IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B050362BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival_du_Jeu_IOSApp.swift; sourceTree = "<group>"; };
 		B1B050382BA0970E00FD010A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B117BC892BADC7D5008B5CBD /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B117BC8A2BADC7F3008B5CBD /* Requests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		B182BFBD2BA9EFB600A4E568 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +222,7 @@
 		B1B050352BA0970E00FD010A /* Festival du Jeu IOS */ = {
 			isa = PBXGroup;
 			children = (
+				B117BC892BADC7D5008B5CBD /* Requests */,
 				B182BFC52BA9F8E000A4E568 /* Utils */,
 				F8144D2C2BA5FEE000B85A7F /* Models */,
 				B1B050682BA09B8A00FD010A /* Views */,
@@ -301,6 +318,7 @@
 				B1B050842BA1B66A00FD010A /* LoginViewModel.swift */,
 				B1B050882BA4989700FD010A /* WelcomViewModel.swift */,
 				F8DF89F22BA761FA00DF731E /* SignInViewModel.swift */,
+				B182BFD02BACA8C900A4E568 /* NextAffectationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -366,6 +384,8 @@
 				F8EB29DA2BA83BA200E3B570 /* UserModel.swift */,
 				F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */,
 				B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */,
+				B182BFCC2BAC9B7A00A4E568 /* SoireeDecouverteModel.swift */,
+				B182BFCE2BACA8A600A4E568 /* NextAffectationModel.swift */,
 				F8F15B9C2BADB960002C37E0 /* HebergementModel.swift */,
 				F8F15B9E2BADB97F002C37E0 /* ReservationModel.swift */,
 			);
@@ -541,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B182BFD12BACA8C900A4E568 /* NextAffectationViewModel.swift in Sources */,
 				F8EB29DD2BA83C0500E3B570 /* ZoneModel.swift in Sources */,
 				F8144D2B2BA5FE9400B85A7F /* JeuxListeViewModel.swift in Sources */,
 				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
@@ -559,6 +580,7 @@
 				F8DF89F32BA761FA00DF731E /* SignInViewModel.swift in Sources */,
 				F8144D262BA5FE3700B85A7F /* JeuxListeView.swift in Sources */,
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
+				B182BFCF2BACA8A600A4E568 /* NextAffectationModel.swift in Sources */,
 				F8EB29D12BA8326A00E3B570 /* PlanningView.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
 				F8F15BA72BADBA51002C37E0 /* HebergementView.swift in Sources */,
@@ -578,6 +600,7 @@
 				F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
+				B117BC8B2BADC7F3008B5CBD /* Requests.swift in Sources */,
 				B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */,
 				F8F15BA22BADB9D1002C37E0 /* HebergeurViewModel.swift in Sources */,
 				B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */,
@@ -586,6 +609,7 @@
 				F8F15B9F2BADB97F002C37E0 /* ReservationModel.swift in Sources */,
 				B182BFC72BA9F92500A4E568 /* TokenManager.swift in Sources */,
 				F84926802BA8DAFB00D8F0A1 /* EquipeViewModel.swift in Sources */,
+				B182BFCD2BAC9B7A00A4E568 /* SoireeDecouverteModel.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,7 @@ struct Footer: View {
             Spacer()
             HStack {
                 Spacer()
+
                 
                 NavigationLink(destination: HebergementView()) {
                     Text("Hebergement")
@@ -22,23 +23,42 @@ struct Footer: View {
                 Spacer()
                 
                 NavigationLink(destination: PlanningView()) {
-                    Text("Planning")
-                }.foregroundColor(Colors.BleuFonce)
+                    VStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(Colors.BleuFonce)
+                        Text("Planning")
+                            .foregroundColor(Colors.BleuFonce)
+
+                    }
+                }
                 
                 Spacer()
                 
                 NavigationLink(destination: JeuxListeView()) {
-                    Text("Jeux")
-                }.foregroundColor(Colors.BleuFonce)
+                    VStack {
+                        Image(systemName: "gamecontroller.fill")
+                            .foregroundColor(Colors.BleuFonce)
+                        Text("Jeux")
+                            .foregroundColor(Colors.BleuFonce)
+
+                    }
+                }
                 
                 Spacer()
                 
                 NavigationLink(destination: ProfileView()) {
-                    Text("Profil")
-                }.foregroundColor(Colors.BleuFonce)
+                    VStack {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(Colors.BleuFonce)
+                        Text("Profil")
+                            .foregroundColor(Colors.BleuFonce)
+
+                    }
+                }
+                Spacer()
             }
             .padding()
-            .background(Colors.VertFonce)
+            .background(Color.gray.opacity(0.1))
         }
     }
 }
