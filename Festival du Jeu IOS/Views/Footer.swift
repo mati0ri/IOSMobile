@@ -14,17 +14,12 @@ struct Footer: View {
             Spacer()
             HStack {
                 Spacer()
-                Button(action: {
-                    // Code to navigate to Page 1
-                }) {
-                    VStack {
-                        Image(systemName: "1.square.fill")
-                            .foregroundColor(Colors.BleuFonce)
-                        Text("Page 1")
-                            .foregroundColor(Colors.BleuFonce)
 
-                    }
-                }
+                
+                NavigationLink(destination: HebergementView()) {
+                    Text("Hebergement")
+                }.foregroundColor(Colors.BleuFonce)
+                
                 Spacer()
                 
                 NavigationLink(destination: PlanningView()) {
