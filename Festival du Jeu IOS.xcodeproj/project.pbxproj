@@ -49,6 +49,15 @@
 		F8EB29E02BA83DF600E3B570 /* PlanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */; };
 		F8EB29E22BA847DD00E3B570 /* AffectationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29E12BA847DD00E3B570 /* AffectationView.swift */; };
 		F8EB29E42BA8480100E3B570 /* AffectationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */; };
+		F8F15B9B2BADB83A002C37E0 /* Jours.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15B9A2BADB83A002C37E0 /* Jours.swift */; };
+		F8F15B9D2BADB960002C37E0 /* HebergementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15B9C2BADB960002C37E0 /* HebergementModel.swift */; };
+		F8F15B9F2BADB97F002C37E0 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15B9E2BADB97F002C37E0 /* ReservationModel.swift */; };
+		F8F15BA22BADB9D1002C37E0 /* HebergeurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BA12BADB9D1002C37E0 /* HebergeurViewModel.swift */; };
+		F8F15BA42BADB9F8002C37E0 /* ProposerHebergementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BA32BADB9F8002C37E0 /* ProposerHebergementViewModel.swift */; };
+		F8F15BA72BADBA51002C37E0 /* HebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BA62BADBA51002C37E0 /* HebergementView.swift */; };
+		F8F15BA92BADBA6F002C37E0 /* ProposerHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */; };
+		F8F15BAB2BADBA9A002C37E0 /* ChercherHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */; };
+		F8F15BAD2BADBAB5002C37E0 /* HebergeurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +123,15 @@
 		F8EB29DF2BA83DF600E3B570 /* PlanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningViewModel.swift; sourceTree = "<group>"; };
 		F8EB29E12BA847DD00E3B570 /* AffectationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationView.swift; sourceTree = "<group>"; };
 		F8EB29E32BA8480100E3B570 /* AffectationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectationViewModel.swift; sourceTree = "<group>"; };
+		F8F15B9A2BADB83A002C37E0 /* Jours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jours.swift; sourceTree = "<group>"; };
+		F8F15B9C2BADB960002C37E0 /* HebergementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementModel.swift; sourceTree = "<group>"; };
+		F8F15B9E2BADB97F002C37E0 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		F8F15BA12BADB9D1002C37E0 /* HebergeurViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergeurViewModel.swift; sourceTree = "<group>"; };
+		F8F15BA32BADB9F8002C37E0 /* ProposerHebergementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposerHebergementViewModel.swift; sourceTree = "<group>"; };
+		F8F15BA62BADBA51002C37E0 /* HebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementView.swift; sourceTree = "<group>"; };
+		F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposerHebergementView.swift; sourceTree = "<group>"; };
+		F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChercherHebergementView.swift; sourceTree = "<group>"; };
+		F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergeurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +270,7 @@
 				B1B050762BA1A69E00FD010A /* APIStates.swift */,
 				B1B050782BA1A6C900FD010A /* APIErrors.swift */,
 				F8144D202BA5F5FA00B85A7F /* Colors.swift */,
+				F8F15B9A2BADB83A002C37E0 /* Jours.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 		B1B050672BA09AE400FD010A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F8F15BA02BADB9B4002C37E0 /* Hebergement */,
 				B182BFC02BA9F2E000A4E568 /* Profile */,
 				F8EB29DE2BA83DE000E3B570 /* Planning */,
 				F8144D272BA5FE5A00B85A7F /* Jeux */,
@@ -288,6 +308,7 @@
 		B1B050682BA09B8A00FD010A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F8F15BA52BADBA3E002C37E0 /* Hebergement */,
 				B182BFBD2BA9EFB600A4E568 /* Profile */,
 				F8EB29CF2BA8323000E3B570 /* Planning */,
 				F8144D222BA5FDFF00B85A7F /* Jeux */,
@@ -345,6 +366,8 @@
 				F8EB29DA2BA83BA200E3B570 /* UserModel.swift */,
 				F8EB29DC2BA83C0500E3B570 /* ZoneModel.swift */,
 				B182BFC12BA9F5B500A4E568 /* ProfileModel.swift */,
+				F8F15B9C2BADB960002C37E0 /* HebergementModel.swift */,
+				F8F15B9E2BADB97F002C37E0 /* ReservationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,6 +389,26 @@
 				F849267F2BA8DAFB00D8F0A1 /* EquipeViewModel.swift */,
 			);
 			path = Planning;
+			sourceTree = "<group>";
+		};
+		F8F15BA02BADB9B4002C37E0 /* Hebergement */ = {
+			isa = PBXGroup;
+			children = (
+				F8F15BA12BADB9D1002C37E0 /* HebergeurViewModel.swift */,
+				F8F15BA32BADB9F8002C37E0 /* ProposerHebergementViewModel.swift */,
+			);
+			path = Hebergement;
+			sourceTree = "<group>";
+		};
+		F8F15BA52BADBA3E002C37E0 /* Hebergement */ = {
+			isa = PBXGroup;
+			children = (
+				F8F15BA62BADBA51002C37E0 /* HebergementView.swift */,
+				F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */,
+				F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */,
+				F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */,
+			);
+			path = Hebergement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,10 +546,12 @@
 				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
 				F8144D212BA5F5FA00B85A7F /* Colors.swift in Sources */,
 				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
+				F8F15B9D2BADB960002C37E0 /* HebergementModel.swift in Sources */,
 				F8EB29E42BA8480100E3B570 /* AffectationViewModel.swift in Sources */,
 				F8EB29D92BA83AE600E3B570 /* HoraireModel.swift in Sources */,
 				B1B050852BA1B66A00FD010A /* LoginViewModel.swift in Sources */,
 				B1B050792BA1A6C900FD010A /* APIErrors.swift in Sources */,
+				F8F15BAB2BADBA9A002C37E0 /* ChercherHebergementView.swift in Sources */,
 				F8144D1F2BA5F35200B85A7F /* Footer.swift in Sources */,
 				B1B050392BA0970E00FD010A /* ContentView.swift in Sources */,
 				F8EB29D52BA839F200E3B570 /* PosteModel.swift in Sources */,
@@ -516,11 +561,16 @@
 				B1B0507B2BA1A75C00FD010A /* BenevoleDTO.swift in Sources */,
 				F8EB29D12BA8326A00E3B570 /* PlanningView.swift in Sources */,
 				B1B050732BA19E8900FD010A /* BenevoleVM.swift in Sources */,
+				F8F15BA72BADBA51002C37E0 /* HebergementView.swift in Sources */,
+				F8F15BA42BADB9F8002C37E0 /* ProposerHebergementViewModel.swift in Sources */,
 				F8EB29E22BA847DD00E3B570 /* AffectationView.swift in Sources */,
 				F8EB29D32BA8389700E3B570 /* AffectationModel.swift in Sources */,
+				F8F15BAD2BADBAB5002C37E0 /* HebergeurView.swift in Sources */,
 				B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */,
 				B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */,
 				F8EB29D72BA83A8D00E3B570 /* ReferentModel.swift in Sources */,
+				F8F15B9B2BADB83A002C37E0 /* Jours.swift in Sources */,
+				F8F15BA92BADBA6F002C37E0 /* ProposerHebergementView.swift in Sources */,
 				F8EB29E02BA83DF600E3B570 /* PlanningViewModel.swift in Sources */,
 				F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */,
 				F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */,
@@ -529,9 +579,11 @@
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B182BFC42BA9F76100A4E568 /* ProfileViewModel.swift in Sources */,
+				F8F15BA22BADB9D1002C37E0 /* HebergeurViewModel.swift in Sources */,
 				B182BFC22BA9F5B500A4E568 /* ProfileModel.swift in Sources */,
 				B1B050822BA1B62800FD010A /* LoginView.swift in Sources */,
 				F8144D2E2BA5FEF100B85A7F /* JeuModel.swift in Sources */,
+				F8F15B9F2BADB97F002C37E0 /* ReservationModel.swift in Sources */,
 				B182BFC72BA9F92500A4E568 /* TokenManager.swift in Sources */,
 				F84926802BA8DAFB00D8F0A1 /* EquipeViewModel.swift in Sources */,
 				B1B0506F2BA09D0E00FD010A /* AuthView.swift in Sources */,

@@ -8,6 +8,15 @@
 import Foundation
 
 struct TokenManager {
+    
+    func getToken() -> String? {
+        guard let token = UserDefaults.standard.string(forKey: "token") else {
+            print("Token not found in UserDefaults")
+            return nil
+        }
+        return token
+    }
+    
     static func getUserIdFromToken() -> String? {
         guard let token = UserDefaults.standard.string(forKey: "token") else {
             print("Token not found in UserDefaults")
@@ -31,4 +40,5 @@ struct TokenManager {
         if paddingLength == 0 { return "" }
         return String(repeating: "=", count: 4 - paddingLength)
     }
+    
 }
