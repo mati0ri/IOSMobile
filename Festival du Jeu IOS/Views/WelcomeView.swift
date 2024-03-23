@@ -18,22 +18,34 @@ struct WelcomeView: View {
                     .font(.largeTitle)
                     .fontWeight(.semibold)
 
+//                Text("Bienvenue")
+
+
                 if viewModel.isLoading || nextAffectationViewModel.isLoading {
                     ProgressView()
                 } else {
                     NextAffectationCard(affectation: nextAffectationViewModel.nextAffectation)
 
+                    Text("Cette année, le festival du jeu c'est")
+                    HStack {
+                        StatisticCard(label: "33 bénévoles")
+                        StatisticCard(label: "96 éditeurs")
+                        StatisticCard(label: "262 jeux")
+                    }.padding()
+
+                    Text("Les prochaines soirées découvertes")
+
                     ScrollView(.horizontal, showsIndicators: false) {
-                                        HStack(spacing: 15) {
-                                            ForEach(viewModel.soireesDecouvertes) { soiree in
-                                                NavigationLink(destination: SoireeDetailView(soiree: soiree, viewModel: viewModel)) {
-                                                    SoireeDecouverteCard(soiree: soiree)
-                                                }
-                                            }
-                                        }
-                                        .padding()
-                                    }
-                                    .frame(height: 200)
+                        HStack(spacing: 15) {
+                            ForEach(viewModel.soireesDecouvertes) { soiree in
+                                NavigationLink(destination: SoireeDetailView(soiree: soiree, viewModel: viewModel)) {
+                                    SoireeDecouverteCard(soiree: soiree)
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                    .frame(height: 120)
                 }
 
                 Footer()
@@ -43,6 +55,19 @@ struct WelcomeView: View {
                 nextAffectationViewModel.fetchNextAffectation()
             }
         }
+    }
+}
+
+struct StatisticCard: View {
+    let label: String
+
+    var body: some View {
+        Text(label)
+            .fontWeight(.bold)
+            .foregroundColor(.blue)
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
     }
 }
 
@@ -76,17 +101,18 @@ struct NextAffectationCard: View {
         NavigationLink(destination: PlanningView()) {
             VStack {
                 if let affectation = affectation {
-                    Text("Prochaine affectation: \(affectation.poste.intitule)")
-                    Text("Jour: \(affectation.affectation.horaire.jour)")
-                    Text("Horaire: \(affectation.affectation.horaire.horaire)")
+                    Text("Ta prochaine affectation")
+                        .foregroundColor(.secondary)
 
-                        .padding()
+                    Text("\(affectation.poste.intitule)")
+                    Text("\(affectation.affectation.horaire.jour)")
+                    Text("Horaire: \(affectation.affectation.horaire.horaire.convertirPlageHoraire())")
                 } else {
                     Text("Pas de prochaine affectation")
                         .foregroundColor(.secondary)
                 }
             }
-            .frame(width: 300, height: 150)
+            .frame(width: 340, height: 170)
             .background(Color.blue.opacity(0.1))
             .cornerRadius(12)
             .padding()
@@ -128,6 +154,19 @@ struct SoireeDetailView: View {
         }
         .padding()
         // Removed the .navigationBarItems modifier with the "Fermer" button
+    }
+}
+
+extension String {
+    func convertirPlageHoraire() -> String {
+        let composants = self.split(separator: "_")
+        if composants.count == 3 {
+            let debut = String(composants[1])
+            let fin = String(composants[2])
+            return "\(debut)h - \(fin)h"
+        } else {
+            return self // Retourne la chaîne originale si le format n'est pas respecté
+        }
     }
 }
 
