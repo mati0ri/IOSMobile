@@ -62,6 +62,11 @@
 		F8F15BA92BADBA6F002C37E0 /* ProposerHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */; };
 		F8F15BAB2BADBA9A002C37E0 /* ChercherHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */; };
 		F8F15BAD2BADBAB5002C37E0 /* HebergeurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */; };
+		F8F15BAF2BADBD21002C37E0 /* ChercherHebergementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BAE2BADBD21002C37E0 /* ChercherHebergementViewModel.swift */; };
+		F8F15BB12BADBFA9002C37E0 /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BB02BADBFA9002C37E0 /* ReservationViewModel.swift */; };
+		F8F15BB52BADC238002C37E0 /* HorairesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BB42BADC238002C37E0 /* HorairesManager.swift */; };
+		F8F15BB72BADC6CB002C37E0 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BB62BADC6CB002C37E0 /* ReservationView.swift */; };
+		F8F15BB92BADEDFC002C37E0 /* ChoixHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F15BB82BADEDFC002C37E0 /* ChoixHebergementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +145,11 @@
 		F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposerHebergementView.swift; sourceTree = "<group>"; };
 		F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChercherHebergementView.swift; sourceTree = "<group>"; };
 		F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergeurView.swift; sourceTree = "<group>"; };
+		F8F15BAE2BADBD21002C37E0 /* ChercherHebergementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChercherHebergementViewModel.swift; sourceTree = "<group>"; };
+		F8F15BB02BADBFA9002C37E0 /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
+		F8F15BB42BADC238002C37E0 /* HorairesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorairesManager.swift; sourceTree = "<group>"; };
+		F8F15BB62BADC6CB002C37E0 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		F8F15BB82BADEDFC002C37E0 /* ChoixHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoixHebergementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				B182BFC62BA9F92500A4E568 /* TokenManager.swift */,
+				F8F15BB42BADC238002C37E0 /* HorairesManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -416,6 +427,8 @@
 			children = (
 				F8F15BA12BADB9D1002C37E0 /* HebergeurViewModel.swift */,
 				F8F15BA32BADB9F8002C37E0 /* ProposerHebergementViewModel.swift */,
+				F8F15BAE2BADBD21002C37E0 /* ChercherHebergementViewModel.swift */,
+				F8F15BB02BADBFA9002C37E0 /* ReservationViewModel.swift */,
 			);
 			path = Hebergement;
 			sourceTree = "<group>";
@@ -427,6 +440,8 @@
 				F8F15BA82BADBA6F002C37E0 /* ProposerHebergementView.swift */,
 				F8F15BAA2BADBA9A002C37E0 /* ChercherHebergementView.swift */,
 				F8F15BAC2BADBAB5002C37E0 /* HebergeurView.swift */,
+				F8F15BB62BADC6CB002C37E0 /* ReservationView.swift */,
+				F8F15BB82BADEDFC002C37E0 /* ChoixHebergementView.swift */,
 			);
 			path = Hebergement;
 			sourceTree = "<group>";
@@ -565,6 +580,7 @@
 				F8EB29DD2BA83C0500E3B570 /* ZoneModel.swift in Sources */,
 				F8144D2B2BA5FE9400B85A7F /* JeuxListeViewModel.swift in Sources */,
 				B1B050802BA1AC6000FD010A /* BenevoleIntent.swift in Sources */,
+				F8F15BB12BADBFA9002C37E0 /* ReservationViewModel.swift in Sources */,
 				F8144D212BA5F5FA00B85A7F /* Colors.swift in Sources */,
 				B1B050712BA09DA500FD010A /* CustomButton.swift in Sources */,
 				F8F15B9D2BADB960002C37E0 /* HebergementModel.swift in Sources */,
@@ -587,6 +603,7 @@
 				F8F15BA42BADB9F8002C37E0 /* ProposerHebergementViewModel.swift in Sources */,
 				F8EB29E22BA847DD00E3B570 /* AffectationView.swift in Sources */,
 				F8EB29D32BA8389700E3B570 /* AffectationModel.swift in Sources */,
+				F8F15BB92BADEDFC002C37E0 /* ChoixHebergementView.swift in Sources */,
 				F8F15BAD2BADBAB5002C37E0 /* HebergeurView.swift in Sources */,
 				B1B050872BA497FD00FD010A /* WelcomeView.swift in Sources */,
 				B1B050892BA4989700FD010A /* WelcomViewModel.swift in Sources */,
@@ -597,7 +614,10 @@
 				F8144D292BA5FE6C00B85A7F /* JeuViewModel.swift in Sources */,
 				F8DF89F12BA760C500DF731E /* SignInView.swift in Sources */,
 				B182BFBF2BA9EFC500A4E568 /* ProfileView.swift in Sources */,
+				F8F15BB52BADC238002C37E0 /* HorairesManager.swift in Sources */,
 				F8EB29DB2BA83BA200E3B570 /* UserModel.swift in Sources */,
+				F8F15BB72BADC6CB002C37E0 /* ReservationView.swift in Sources */,
+				F8F15BAF2BADBD21002C37E0 /* ChercherHebergementViewModel.swift in Sources */,
 				B1B050372BA0970E00FD010A /* Festival_du_Jeu_IOSApp.swift in Sources */,
 				B1B050772BA1A69E00FD010A /* APIStates.swift in Sources */,
 				B117BC8B2BADC7F3008B5CBD /* Requests.swift in Sources */,

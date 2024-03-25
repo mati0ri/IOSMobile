@@ -19,11 +19,11 @@ struct ReservationModel: Decodable {
     public var reservationId: String
     public var hebergementId: String
     public var jour: Jours
-    public var hebergement: HebergementModel?
+    public var hebergement: HebergementModel
     public var user: UserModel?
     public var userId: String
     
-    init(reservationId: String, hebergementId: String, jour: Jours, hebergement: HebergementModel?, user: UserModel?, userId: String) {
+    init(reservationId: String, hebergementId: String, jour: Jours, hebergement: HebergementModel, user: UserModel?, userId: String) {
         self.reservationId = reservationId
         self.hebergementId = hebergementId
         self.jour = jour
