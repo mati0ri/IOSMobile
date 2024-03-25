@@ -12,6 +12,8 @@ class ChercherHebergementViewModel: ObservableObject {
     private let hebergementsURL = "https://backawi.onrender.com/api/hebergement"
     private let reservationURL = "https://backawi.onrender.com/api/reservation"
     
+    let tokenM: TokenManager = TokenManager()
+    
     func getHebergements(completion: @escaping ([ReservationViewModel]?) -> Void) {
         
         let url = URL(string: "\(hebergementsURL)")!
@@ -64,5 +66,65 @@ class ChercherHebergementViewModel: ObservableObject {
         }.resume()
         
     }
+    
+    func getReservationsByUserId(completion: @escaping ([ReservationViewModel]?) -> Void) {
+            
+        guard let token = tokenM.getToken() else {
+            completion(nil)
+            return
+        }
+        
+        let url = URL(string: "\(reservationURL)/of/user")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // Vérification des erreurs
+            if let error = error {
+                print("Erreur de requête: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            // Vérification de la réponse
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Réponse serveur invalide")
+                completion(nil)
+                return
+            }
+            
+            if httpResponse.statusCode == 404 {
+                print("Aucune réservation trouvée pour cet utilisateur")
+                completion([])
+                return
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("Erreur de requête: Statut HTTP invalide - \(httpResponse.statusCode)")
+                completion(nil)
+                return
+            }
+            
+            // Vérification des données
+            guard let data = data else {
+                print("Aucune donnée reçue")
+                completion(nil)
+                return
+            }
+            
+            do {
+                let reservations = try JSONDecoder().decode([ReservationModel].self, from: data)
+                let reservationViewModels = reservations.map { reservation in
+                    return ReservationViewModel(hebergement: reservation.hebergement, reservation: reservation)
+                }
+                completion(reservationViewModels)
+            } catch {
+                print("Erreur de décodage JSON: \(error)")
+                completion(nil)
+            }
+        }.resume()
+    }
+
     
 }

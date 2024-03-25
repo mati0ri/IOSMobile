@@ -18,11 +18,16 @@ struct ChercherHebergementView: View {
     
     @StateObject var chercherHebergementViewModel = ChercherHebergementViewModel()
     @State private var choix: [ReservationViewModel] = []
+    @State private var reservations: [ReservationViewModel] = []
+    
+    // Ajouter une propriété pour stocker les identifiants des hébergements déjà réservés
+    @State private var hebergementsReserves: Set<String> = []
     
     @State private var fridayHebergements: [ReservationViewModel] = []
     @State private var saturdayHebergements: [ReservationViewModel] = []
     @State private var sundayHebergements: [ReservationViewModel] = []
     
+    @State public var aucuneReservation = false
     @State public var aucunChoix = false
     @State public var vendrediSelected = false
     @State public var samediSelected = false
@@ -37,14 +42,17 @@ struct ChercherHebergementView: View {
         
         // Filtrer les choix et les affecter aux tableaux appropriés en fonction du jour
         for reservation in choix {
-            if reservation.hebergement.jours.contains(.Vendredi) {
-                fridayHebergements.append(reservation)
-            }
-            if reservation.hebergement.jours.contains(.Samedi) {
-                saturdayHebergements.append(reservation)
-            }
-            if reservation.hebergement.jours.contains(.Dimanche) {
-                sundayHebergements.append(reservation)
+            
+            if !hebergementsReserves.contains(reservation.hebergement.hebergementId) {
+                if reservation.hebergement.jours.contains(.Vendredi) {
+                    fridayHebergements.append(reservation)
+                }
+                if reservation.hebergement.jours.contains(.Samedi) {
+                    saturdayHebergements.append(reservation)
+                }
+                if reservation.hebergement.jours.contains(.Dimanche) {
+                    sundayHebergements.append(reservation)
+                }
             }
         }
         
@@ -55,6 +63,33 @@ struct ChercherHebergementView: View {
         
         VStack {
             
+            Text("Mes réservations").font(.title).foregroundColor(Colors.BleuFonce)
+            if !reservations.isEmpty {
+                List {
+                    ForEach(reservations, id: \.id) { resa in
+                        NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
+                            VStack {
+                                Text(resa.reservation!.jour.rawValue).font(.headline)
+                                HStack {
+                                    Text("Adresse : ")
+                                    Text(resa.hebergement.adresse)
+                                }
+                                HStack {
+                                    Text("Nombre de places : ")
+                                    Text(resa.hebergement.nbPlace.description)
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if aucuneReservation {
+                Text("Vous n'avez réservé aucun hébergement pour le moment.")
+            } else {
+                Text("Chargement en cours...")
+            }
+            
+            Divider()
+            
             if !choix.isEmpty {
                 
                 Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?")
@@ -62,10 +97,6 @@ struct ChercherHebergementView: View {
                     Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
                     Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
                     Toggle(Jours.Dimanche.rawValue.capitalized, isOn: $dimancheSelected)
-                }
-                
-                if !vendrediSelected && !samediSelected && !dimancheSelected {
-                    Spacer()
                 }
                 
                 if !fridayHebergements.isEmpty && vendrediSelected {
@@ -91,8 +122,6 @@ struct ChercherHebergementView: View {
                     }
                 }
                 
-                
-                
                 if !sundayHebergements.isEmpty && dimancheSelected {
                     VStack {
                         Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
@@ -104,6 +133,7 @@ struct ChercherHebergementView: View {
                     }
                 }
                 
+                Spacer()
                 
             } else if aucunChoix {
                 Text("Aucun hébergement de disponible pour le moment.")
@@ -114,6 +144,25 @@ struct ChercherHebergementView: View {
             
         }.navigationTitle("ChercherHebergement")
             .onAppear {
+                chercherHebergementViewModel.getReservationsByUserId {
+                    fetchedRes in
+                        if let fetchedRes = fetchedRes {
+                            self.reservations = fetchedRes
+                            
+                            if fetchedRes.isEmpty {
+                                self.aucuneReservation = true
+                                print("Aucune réservation récupérée.")
+                            } else {
+                                print("Réservations récupérées avec succès :")
+                                for res in fetchedRes {
+                                    self.hebergementsReserves.insert(res.hebergement.hebergementId)
+                                    print(res)
+                                }
+                            }
+                        } else {
+                            print("Erreur lors de la récupération des réservations.")
+                        }
+                }
                 chercherHebergementViewModel.getHebergements { fetchedHeb in
                     if let fetchedHeb = fetchedHeb {
                         self.choix = fetchedHeb
@@ -132,7 +181,6 @@ struct ChercherHebergementView: View {
                         print("Erreur lors de la récupération des hébergements.")
                     }
                 }
-                
             }.padding()
     }
 }
