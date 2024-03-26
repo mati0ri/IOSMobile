@@ -238,7 +238,7 @@ struct CardView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Colors.GrisTresClair)
+        .background(Colors.BleuGris.opacity(0.2))
         .cornerRadius(10)
         .padding(.horizontal)
         .shadow(color: Colors.GrisTresClair, radius: 2)

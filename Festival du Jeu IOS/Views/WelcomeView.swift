@@ -14,11 +14,10 @@ struct WelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Accueil")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-
-//                Text("Bienvenue")
+                Image("logo-FDJ") // Utilisation de l'image à la place du texte
+                                    .resizable() // Rend l'image redimensionnable
+                                    .scaledToFit() // Assure que le logo s'adapte à l'espace disponible tout en conservant ses proportions
+                                    .frame(height: 160)
 
 
                 if viewModel.isLoading || nextAffectationViewModel.isLoading {
@@ -28,10 +27,11 @@ struct WelcomeView: View {
 
                     Text("Cette année, le festival du jeu c'est")
                     HStack {
-                        StatisticCard(label: "33 bénévoles")
-                        StatisticCard(label: "96 éditeurs")
-                        StatisticCard(label: "262 jeux")
+                        StatisticCard(label: "bénévoles", number: "33")
+                        StatisticCard(label: "éditeurs", number: "96")
+                        StatisticCard(label: "jeux", number: "262")
                     }.padding()
+
 
                     Text("Les prochaines soirées découvertes")
 
@@ -60,17 +60,22 @@ struct WelcomeView: View {
 
 struct StatisticCard: View {
     let label: String
+    let number: String
 
     var body: some View {
-        Text(label)
-            .fontWeight(.bold)
-            .foregroundColor(.blue)
-            .padding()
-            .background(Color.gray.opacity(0.1))
-            .cornerRadius(12)
+        VStack(spacing: 4) { // Ajoutez un petit espace entre le nombre et le label si nécessaire
+            Text(number)
+                .font(.system(size: 22)) // Ajustez la taille de la police comme vous le souhaitez
+                .fontWeight(.bold)
+            Text(label)
+        }
+        .foregroundColor(.white)
+        .padding(.vertical, 8) // Ajustez le padding vertical pour permettre à l'ensemble du contenu de rentrer
+        .frame(minWidth: 0, maxWidth: .infinity) // Permet à la carte de s'étendre horizontalement
+        .background(Colors.BleuGris.opacity(0.9))
+        .cornerRadius(12)
     }
 }
-
 
 
 
@@ -86,13 +91,14 @@ struct SoireeDecouverteCard: View {
                 .foregroundColor(Colors.GrisFonce)
             
             Text(soiree.estInscrit ? "Inscrit" : "Non inscrit")
-                .foregroundColor(soiree.estInscrit ? .green : .red)
+                .foregroundColor(soiree.estInscrit ? .green : .gray)
         }
-        .frame(width: 200, height: 100)
-        .background(Color.gray.opacity(0.1))
+        .frame(width: 200, height: 110)
+        .background(soiree.estInscrit ? Colors.VertClair.opacity(0.2) : Colors.BleuGris.opacity(0.2))
         .cornerRadius(12)
     }
 }
+
 
 struct NextAffectationCard: View {
     let affectation: NextAffectationModel?
@@ -103,17 +109,21 @@ struct NextAffectationCard: View {
                 if let affectation = affectation {
                     Text("Ta prochaine affectation")
                         .foregroundColor(.secondary)
+                    
 
                     Text("\(affectation.poste.intitule)")
-                    Text("\(affectation.affectation.horaire.jour)")
-                    Text("Horaire: \(affectation.affectation.horaire.horaire.convertirPlageHoraire())")
+                        .fontWeight(.bold)
+                        .foregroundColor(Colors.BleuFonce.opacity(1))
+
+                    Text("\(affectation.affectation.horaire.jour) \(affectation.affectation.horaire.horaire.convertirPlageHoraire())")
+                        .foregroundColor(Colors.BleuFonce.opacity(1))
                 } else {
                     Text("Pas de prochaine affectation")
                         .foregroundColor(.secondary)
                 }
             }
-            .frame(width: 340, height: 170)
-            .background(Color.blue.opacity(0.1))
+            .frame(width: 340, height: 160)
+            .background(Colors.VertClair.opacity(0.2))
             .cornerRadius(12)
             .padding()
         }
