@@ -35,28 +35,33 @@ struct ProposerHebergementView: View {
         VStack {
             
             if isPropositionsShown {
-                Text("Mes hébergements").font(.title).foregroundColor(Colors.BleuFonce)
+                Text("Mes hébergements").font(.title)
                 if !propositions.isEmpty {
                     List {
                         ForEach(propositions, id: \.id) { hebergement in
                             NavigationLink(destination: HebergeurView(hebergement: hebergement)) {
-                                VStack {
-                                    HStack {
-                                        Text("Adresse : ")
-                                        Text(hebergement.hebergement.adresse)
+                                HStack {
+                                    Spacer()
+                                    VStack {
+                                        HStack {
+                                            Text("Adresse : ").font(.headline)
+                                            Text(hebergement.hebergement.adresse)
+                                        }
+                                        HStack {
+                                            Text("Nombre de places : ").font(.headline)
+                                            Text(hebergement.hebergement.nbPlace.description)
+                                        }
                                     }
-                                    HStack {
-                                        Text("Nombre de places : ")
-                                        Text(hebergement.hebergement.nbPlace.description)
-                                    }
+                                    Spacer()
                                 }
+                                Spacer()
                             }
                         }
                     }
                 } else if aucuneProposition {
-                    Text("Vous n'avez proposé aucun hébergement pour le moment.")
+                    Text("Vous n'avez proposé aucun hébergement pour le moment.").padding()
                 } else {
-                    Text("Chargement en cours...")
+                    Text("Chargement de vos propositions en cours...")
                 }
             }
             
@@ -66,14 +71,13 @@ struct ProposerHebergementView: View {
                 Button("Faire une proposition") {
                     isFormShown = true
                     isPropositionsShown = false
-                }.buttonStyle(.borderedProminent).tint(Colors.VertFonce)
+                }
             } else {
                 Form {
                     Section(header: Text("Proposition d'hébergement")) {
                         TextField("Nombre de places", text: $nbPlace)
                             .keyboardType(.numberPad)
                         TextField("Adresse", text: $adresse)
-                        //Section(header: Text("Jours")) {
                             ForEach(joursFiltered, id: \.self) { jour in
                                 Toggle(jour.rawValue.capitalized, isOn: Binding(
                                     get: { joursSelectionnes.contains(jour) },
@@ -86,7 +90,6 @@ struct ProposerHebergementView: View {
                                     }
                                 ))
                             }
-                        //}
                     }
                     Section {
                         Button("Proposer") {
@@ -133,7 +136,7 @@ struct ProposerHebergementView: View {
                     
             }
             
-        }.navigationTitle("ProposerHebergement")
+        }.navigationTitle("Proposer un Hebergement")
             .onAppear {
                 // Charger les jeux depuis l'API lorsque la vue apparaît
                 proposerHebergementViewModel.getHebergementByHebergeur { fetchedProps in

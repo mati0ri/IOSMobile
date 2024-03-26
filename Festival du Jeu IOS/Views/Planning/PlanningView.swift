@@ -40,8 +40,6 @@ struct PlanningView: View {
         
         saturdayAffectations = affectations.filter { $0.affectation.horaire.jour == "Samedi" }
         sundayAffectations = affectations.filter { $0.affectation.horaire.jour == "Dimanche" }
-        print("Samedi : \(saturdayAffectations.first!.affectation.horaire.horaire)")
-        print("Dimanche : \(sundayAffectations.first!.affectation.horaire.horaire)")
     }
     
     // Fonction pour convertir le format "plage_X_Y" en "Xh - Yh"
@@ -57,27 +55,36 @@ struct PlanningView: View {
     var body: some View{
   
         VStack {
+        
             if !affectations.isEmpty {
                 
                 if !saturdayAffectations.isEmpty {
                     VStack {
-                        Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                        Text("Samedi").font(.title.bold())
                         List {
                             ForEach(saturdayAffectations, id: \.id) { affectation in
                                 NavigationLink(destination: AffectationView(affectation: affectation)) {
                                     if affectation.affectation.horaire.jour == "Samedi" {
                                         if affectation.affectation.listePostes.count > 1 {
-                                            VStack {
-                                                Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                Text("Poste à définir")
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                    Text("Poste à définir").bold()
+                                                }
+                                                Spacer()
                                             }
                                         } else {
-                                            VStack {
-                                                Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
-                                                if affectation.affectation.zone != nil {
-                                                    Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                    Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste").bold()
+                                                    if affectation.affectation.zone != nil {
+                                                        Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                                    }
                                                 }
+                                                Spacer()
                                             }
                                         }
                                     }
@@ -96,17 +103,25 @@ struct PlanningView: View {
                                 NavigationLink(destination: AffectationView(affectation: affectation)) {
                                     if affectation.affectation.horaire.jour == "Dimanche" {
                                         if affectation.affectation.listePostes.count > 1 {
-                                            VStack {
-                                                Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                Text("Poste à définir")
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                    Text("Poste à définir").bold()
+                                                }
+                                                Spacer()
                                             }
                                         } else {
-                                            VStack {
-                                                Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
-                                                Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste")
-                                                if affectation.affectation.zone != nil {
-                                                    Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                            HStack {
+                                                Spacer()
+                                                VStack {
+                                                    Text(formatPlageHoraire(affectation.affectation.horaire.horaire))
+                                                    Text(affectation.affectation.listePostes.first?.intitule ?? "Pas d'intitulé de poste").bold()
+                                                    if affectation.affectation.zone != nil {
+                                                        Text(affectation.affectation.zone?.nom ?? "Pas encore de zone définie")
+                                                    }
                                                 }
+                                                Spacer()
                                             }
                                         }
                                     }
@@ -145,7 +160,7 @@ struct PlanningView: View {
                     print("Erreur lors de la récupération des affectations.")
                 }
             }
-        }.padding()
+        }
         
     }
     

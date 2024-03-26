@@ -18,19 +18,32 @@ struct HebergementView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading, spacing: 10) {
             
-            NavigationLink(destination: ProposerHebergementView()) {
-                Text("Proposer un hébergement")
-            }.buttonStyle(.borderedProminent).tint(Colors.VertFonce)
+            Spacer()
+            Text("Vous avez des places chez vous pour accueillir des bénévoles ? ").font(.title2)
+            HStack {
+                Spacer()
+                NavigationLink(destination: ProposerHebergementView()) {
+                    Text("Proposez un hébergement.")
+                }
+            }
+            Spacer()
+
+            Divider()
             
-            Text("ou")
-            
-            NavigationLink(destination: ChercherHebergementView()) {
-                Text("Chercher un hébergement")
-            }.buttonStyle(.borderedProminent).tint(Colors.BleuFonce)
+            Spacer()
+            Text("Vous recherchez un logement pour pouvoir participer au festival ? ").font(.title2)
+            HStack {
+                Spacer()
+                NavigationLink(destination: ChercherHebergementView()) {
+                    Text("Cherchez un hébergement.")
+                }
+            }
+            Spacer()
             
         }.navigationTitle("Hebergement")
+            .padding()
         
     }
     

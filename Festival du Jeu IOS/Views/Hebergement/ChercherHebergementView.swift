@@ -85,7 +85,7 @@ struct ChercherHebergementView: View {
             } else if aucuneReservation {
                 Text("Vous n'avez réservé aucun hébergement pour le moment.")
             } else {
-                Text("Chargement en cours...")
+                Text("Chargement des réservations en cours...")
             }
             
             Divider()
@@ -133,16 +133,15 @@ struct ChercherHebergementView: View {
                     }
                 }
                 
-                Spacer()
-                
             } else if aucunChoix {
-                Text("Aucun hébergement de disponible pour le moment.")
+                Text("Aucun hébergement disponible pour le moment.")
             } else {
-                Text("Chargement en cours...")
+                Text("Chargement des hébergements en cours...")
             }
             
+            Spacer()
             
-        }.navigationTitle("ChercherHebergement")
+        }.navigationTitle("Chercher un Hebergement")
             .onAppear {
                 chercherHebergementViewModel.getReservationsByUserId {
                     fetchedRes in
@@ -181,6 +180,7 @@ struct ChercherHebergementView: View {
                         print("Erreur lors de la récupération des hébergements.")
                     }
                 }
-            }.padding()
+            }
+            .padding()
     }
 }

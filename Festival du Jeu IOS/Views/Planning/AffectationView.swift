@@ -39,11 +39,11 @@ struct AffectationView: View {
                 .font(.title).foregroundColor(Colors.BleuFonce)
             
             if affectation.affectation.listePostes.count > 1 {
-                Text("Liste des postes où vous avez postulé :")
+                Spacer()
+                Text("Liste des postes où vous avez postulé :").font(.headline)
                 ForEach(affectation.affectation.listePostes, id: \.id) { poste in
                     VStack(alignment: .leading, spacing: 10) {
                         Text(poste.intitule)
-                            .font(.title)
                             .multilineTextAlignment(.center)
                     }
                 }
@@ -54,6 +54,7 @@ struct AffectationView: View {
                         .font(.title)
                         .multilineTextAlignment(.center)
                 }
+                Spacer()
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Equipe :").font(.headline)
                     ForEach(equipe, id: \.id) { membre in

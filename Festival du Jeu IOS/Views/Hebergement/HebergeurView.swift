@@ -38,6 +38,12 @@ struct HebergeurView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     
                     HStack {
+                        ForEach(hebergement.hebergement.jours.indices, id: \.self) { index in
+                            Text("\(hebergement.hebergement.jours[index].rawValue) ").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                    Spacer()
+                    HStack {
                         Text("Adresse : ").font(.headline)
                         Text(hebergement.hebergement.adresse)
                     }
@@ -45,16 +51,9 @@ struct HebergeurView: View {
                         Text("Nombre de places : ").font(.headline)
                         Text(hebergement.hebergement.nbPlace.description)
                     }
-                    HStack {
-                        Text("Pour ")
-                        ForEach(hebergement.hebergement.jours.indices, id: \.self) { index in
-                            Text("\(hebergement.hebergement.jours[index].rawValue) ")
-                        }
-                    }
+                    Spacer()
                     
                 }.padding()
-                
-                Spacer()
                 
                 HStack {
                     Spacer()
