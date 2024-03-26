@@ -181,6 +181,6 @@ struct ChercherHebergementView: View {
                     }
                 }
             }
-            .padding()
+        
     }
 }

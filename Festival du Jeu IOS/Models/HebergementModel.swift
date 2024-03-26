@@ -24,14 +24,18 @@ struct HebergementModel: Decodable {
     public var hebergeur: UserModel?
     public var reservations: [ReservationModel]?
     
-    init(hebergementId: String, nbPlace: Int, adresse: String, jours: [Jours], hebergeurId: String, hebergeur: UserModel?, reservations: [ReservationModel]) {
+    init(hebergementId: String, nbPlace: Int, adresse: String, jours: [Jours], hebergeurId: String, hebergeur: UserModel?, reservations: [ReservationModel]? = nil) {
         self.hebergementId = hebergementId
         self.nbPlace = nbPlace
         self.adresse = adresse
         self.jours = jours
         self.hebergeurId = hebergeurId
         self.hebergeur = hebergeur
-        self.reservations = reservations
+        if reservations == nil {
+            self.reservations = []
+        } else {
+            self.reservations = reservations
+        }
     }
     
 }

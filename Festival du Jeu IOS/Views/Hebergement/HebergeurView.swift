@@ -51,6 +51,20 @@ struct HebergeurView: View {
                         Text("Nombre de places : ").font(.headline)
                         Text(hebergement.hebergement.nbPlace.description)
                     }
+                    Divider()
+                    VStack {
+                        Text("Les bénévoles que vous allez héberger :").font(.headline)
+                        if hebergement.hebergement.reservations != nil {
+                            ForEach(hebergement.hebergement.reservations!, id: \.self) { resa in
+                                HStack {
+                                    Text("\(resa.user!.prenom) \(resa.user!.nom)")
+                                    Text(resa.jour.rawValue).font(.headline)
+                                }
+                            }
+                        } else {
+                            Text("Personne n'a réservé pour ce logement pour l'instant.")
+                        }
+                    }
                     Spacer()
                     
                 }.padding()

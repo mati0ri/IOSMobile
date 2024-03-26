@@ -14,7 +14,7 @@
 
 import SwiftUI
 
-struct ReservationModel: Decodable {
+struct ReservationModel: Decodable, Hashable {
     
     public var reservationId: String
     public var hebergementId: String
@@ -31,4 +31,15 @@ struct ReservationModel: Decodable {
         self.user = user
         self.userId = userId
     }
+    
+    // Implémentation de la propriété hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(reservationId)
+    }
+    
+    // Implémentation de la méthode isEqual
+    static func == (lhs: ReservationModel, rhs: ReservationModel) -> Bool {
+        return lhs.reservationId == rhs.reservationId
+    }
+    
 }

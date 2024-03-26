@@ -18,13 +18,17 @@ struct ChoixHebergementView: View {
         
         VStack {
             NavigationLink(destination: ReservationView(hebergement: hebergement, jour: jour, reserved: false)) {
-                VStack {
-                    Text("Adresse: \(hebergement.adresse)")
-                    if let reste = reste {
-                        Text("Places restantes: \(reste)")
-                    } else {
-                        Text("Places: \(hebergement.nbPlace)")
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Adresse: \(hebergement.adresse)")
+                        if let reste = reste {
+                            Text("Places restantes: \(reste)")
+                        } else {
+                            Text("Places: \(hebergement.nbPlace)")
+                        }
                     }
+                    Spacer()
                 }
                 .onAppear {
                     chercherHebergementViewModel.getNbReservationByHebergementId(id: hebergement.hebergementId, date: jour.rawValue) { nbReservations in
