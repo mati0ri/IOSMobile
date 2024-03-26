@@ -58,7 +58,7 @@ struct Footer: View {
                 Spacer()
             }
             .padding()
-            .background(Color.gray.opacity(0.1))
+            .background(Colors.BleuGris.opacity(0.2))
         }
     }
 }

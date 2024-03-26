@@ -13,7 +13,7 @@ struct SignInView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var phoneNumber = ""
-    @State private var selectedSize = ""
+    @State private var selectedSize = "M"
     @State private var pageConnexion = false
     
     @ObservedObject var viewModel: SignInViewModel
@@ -30,30 +30,39 @@ struct SignInView: View {
             LoginView()
         } else {
             VStack {
-                Text("S'inscrire")
+                Text("Inscription")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .padding(.bottom, 20)
                 
                 TextField("Prénom", text: $firstName)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.top, .leading, .trailing])
+                    .shadow(radius: 1)
+
                 
                 TextField("Nom", text: $lastName)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.top, .leading, .trailing])
+                    .shadow(radius: 1)
+
                 
                 TextField("Email", text: $email)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.top, .leading, .trailing])
+                    .shadow(radius: 1)
+
                 
                 SecureField("Mot de passe", text: $password)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.top, .leading, .trailing])
+                    .shadow(radius: 1)
+
                 
                 TextField("Numéro de téléphone", text: $phoneNumber)
-                    .textFieldStyle(PlainTextFieldStyle())
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                    .shadow(radius: 1)
                     .keyboardType(.numberPad)
                     .onReceive(phoneNumber.publisher.collect()) { stringArray in
                         let filtered = stringArray.filter { $0.isNumber }
@@ -63,6 +72,7 @@ struct SignInView: View {
                 
                 Text("Taille T-shirt")
                     .foregroundColor(.secondary)
+                    .padding()
                 
                 Picker(selection: $selectedSize, label: Text("Taille de t-shirt")) {
                     ForEach(tshirtSizes, id: \.self) { size in
@@ -77,9 +87,18 @@ struct SignInView: View {
                 }
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.blue)
+                .background(Colors.BleuMoyen)
                 .cornerRadius(8)
                 .disabled(firstName.isEmpty || lastName.isEmpty || email.isEmpty || password.isEmpty)
+                
+                VStack{
+                    HStack{
+                        Text("Vous avez déjà un compte ?").foregroundColor(.secondary)
+                        Button("Se connecter") {
+                            pageConnexion = true
+                        }.foregroundColor(.blue)
+                    }
+                }.padding()
                 
             }
             .padding()
@@ -87,14 +106,7 @@ struct SignInView: View {
                 Alert(title: Text(viewModel.alertTitle), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
             
-            VStack{
-                HStack{
-                    Text("Vous avez déjà un compte ?").foregroundColor(.secondary)
-                    Button("Se connecter") {
-                        pageConnexion = true
-                    }.foregroundColor(.blue).background(Color.white)
-                }
-            }
+            
         }
         
     }
