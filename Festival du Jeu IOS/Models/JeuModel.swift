@@ -13,7 +13,7 @@ class JeuModel: Decodable {
     public var editeur: String
     public var type: String
     public var notice: String
-    public var zone: String?
+    public var zoneId: String
     public var aAnimer: Bool
     public var recu: Bool
     public var video: String
@@ -23,7 +23,7 @@ class JeuModel: Decodable {
         self.editeur = editeur
         self.type = type
         self.notice = notice
-        self.zone = zone
+        self.zoneId = zone
         self.aAnimer = aAnimer
         self.recu = recu
         self.video = video

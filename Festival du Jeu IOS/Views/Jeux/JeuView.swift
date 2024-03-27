@@ -11,6 +11,8 @@ struct JeuView: View {
     
     @ObservedObject public var jeu: JeuViewModel
     
+    @State public var zone: String = "Pas de zone attribuée"
+    
     init(jeu: JeuViewModel){
         self.jeu = jeu
     }
@@ -31,6 +33,9 @@ struct JeuView: View {
                     .foregroundColor(.secondary)
 
                 Text("Type: \(jeu.type)")
+                    .foregroundColor(.secondary)
+                
+                Text("Zone: \(zone)")
                     .foregroundColor(.secondary)
 
                 Divider()
@@ -72,6 +77,14 @@ struct JeuView: View {
                 }
             }.padding()
 
+        }.onAppear() {
+            jeu.getZoneJeu(zoneId: jeu.zoneId) { zoneResult in
+                if let zoneResult = zoneResult {
+                    self.zone = zoneResult
+                } else {
+                    self.zone = "Erreur lors de la récupération de la zone"
+                }
+            }
         }
     }
 }
