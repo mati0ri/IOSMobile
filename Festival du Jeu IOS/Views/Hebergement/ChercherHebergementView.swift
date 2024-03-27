@@ -65,22 +65,29 @@ struct ChercherHebergementView: View {
             
             Text("Mes réservations").font(.title).foregroundColor(Colors.BleuFonce)
             if !reservations.isEmpty {
-                List {
-                    ForEach(reservations, id: \.id) { resa in
-                        NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
-                            VStack {
-                                Text(resa.reservation!.jour.rawValue).font(.headline)
+                if !vendrediSelected && !samediSelected && !dimancheSelected {
+                    List {
+                        ForEach(reservations, id: \.id) { resa in
+                            NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
                                 HStack {
-                                    Text("Adresse : ")
-                                    Text(resa.hebergement.adresse)
-                                }
-                                HStack {
-                                    Text("Nombre de places : ")
-                                    Text(resa.hebergement.nbPlace.description)
+                                    Spacer()
+                                    VStack {
+                                        Text(resa.reservation!.jour.rawValue).font(.headline)
+                                        HStack {
+                                            Text("Adresse : ")
+                                            Text(resa.hebergement.adresse)
+                                        }
+                                        HStack {
+                                            Text("Nombre de places : ")
+                                            Text(resa.hebergement.nbPlace.description)
+                                        }
+                                    }
+                                    Spacer()
                                 }
                             }
                         }
-                    }
+                    }.frame(height: 300) // Hauteur fixe de la frame pour la liste
+                        .clipped()
                 }
             } else if aucuneReservation {
                 Text("Vous n'avez réservé aucun hébergement pour le moment.")
@@ -92,46 +99,49 @@ struct ChercherHebergementView: View {
             
             if !choix.isEmpty {
                 
-                Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?")
-                HStack {
-                    Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
-                    Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
-                    Toggle(Jours.Dimanche.rawValue.capitalized, isOn: $dimancheSelected)
-                }
-                
-                if !fridayHebergements.isEmpty && vendrediSelected {
-                    VStack {
-                        Text("Vendredi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(fridayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Vendredi)
+                VStack {
+                    
+                    Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?").font(.headline)
+                    HStack {
+                        Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
+                        Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
+                        Toggle(Jours.Dimanche.rawValue.capitalized, isOn: $dimancheSelected)
+                    }
+                    
+                    if !fridayHebergements.isEmpty && vendrediSelected {
+                        VStack {
+                            Text("Vendredi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(fridayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Vendredi)
+                                }
                             }
                         }
                     }
-                }
-                
-                
-                if !saturdayHebergements.isEmpty && samediSelected {
-                    VStack {
-                        Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(saturdayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Samedi)
+                    
+                    
+                    if !saturdayHebergements.isEmpty && samediSelected {
+                        VStack {
+                            Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(saturdayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Samedi)
+                                }
                             }
                         }
                     }
-                }
-                
-                if !sundayHebergements.isEmpty && dimancheSelected {
-                    VStack {
-                        Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(sundayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Dimanche)
+                    
+                    if !sundayHebergements.isEmpty && dimancheSelected {
+                        VStack {
+                            Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(sundayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Dimanche)
+                                }
                             }
                         }
                     }
-                }
+                }.padding()
                 
             } else if aucunChoix {
                 Text("Aucun hébergement disponible pour le moment.")
