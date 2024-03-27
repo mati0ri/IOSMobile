@@ -56,6 +56,7 @@ class ProfileViewModel: ObservableObject {
     
     
     func updateProfile(with updatedData: UserModel) {
+        print("update profile")
         guard let userId = TokenManager.getUserIdFromToken(), let url = URL(string: "\(profileURL)\(userId)") else {
             self.errorMessage = "Erreur de configuration URL ou d'authentification."
             return
@@ -79,8 +80,7 @@ class ProfileViewModel: ObservableObject {
                     self.errorMessage = "Erreur réseau : \(error.localizedDescription)"
                     return
                 }
-                
-                // Mise à jour des données de l'utilisateur localement si la requête réussit
+                print("pas derreur")
                 self.profileData = updatedData
             }
         }.resume()
