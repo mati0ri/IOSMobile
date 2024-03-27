@@ -101,7 +101,6 @@ struct ProfileEditView: View {
     @State private var tempAssociation: String = ""
     @State private var tempNombreEditionPrecedente: Int? = nil
     @State private var tempVegetarien: Bool = false
-    @State private var tempJeuPrefere: String = ""
 
 
     let taillesTShirt = ["XXS", "XS", "S", "M", "L", "XL", "XXL"]
@@ -169,12 +168,6 @@ struct ProfileEditView: View {
                         .keyboardType(.numberPad)
 
                                         }
-                                     
-                    HStack {
-                        Text("Jeu Préféré")
-                        Spacer()
-                        TextField("Jeu Préféré", text: $tempJeuPrefere)
-                    }
                     
                     
 
@@ -192,14 +185,14 @@ struct ProfileEditView: View {
                     tempTelephone = profileData.telephone
                     tempTailleTShirt = profileData.tailleTShirt
                     tempPhotoDeProfil = profileData.photoDeProfil
-                    if profileData.association == "AUCUNE" {
-                        tempAssociation = ""
-                    } else {
-                        tempAssociation = profileData.association ?? ""
-                    }
+//                    if profileData.association == "AUCUNE" {
+//                        tempAssociation = ""
+//                    } else {
+//                        tempAssociation = profileData.association ?? ""
+//                    }
+                    tempAssociation = profileData.association ?? ""
                     tempNombreEditionPrecedente = profileData.nombreEditionPrecedente
                     tempVegetarien = profileData.vegetarien
-                    tempJeuPrefere = profileData.jeuPrefere ?? ""
                 }
             }
             .navigationTitle("Modifier le Profil")
@@ -215,7 +208,6 @@ struct ProfileEditView: View {
                     updatedData.association = tempAssociation
                     updatedData.nombreEditionPrecedente = tempNombreEditionPrecedente
                     updatedData.vegetarien = tempVegetarien
-                    updatedData.jeuPrefere = tempJeuPrefere
                     
                     viewModel.updateProfile(with: updatedData)
                     presentationMode.wrappedValue.dismiss() // Ferme la vue après enregistrement
