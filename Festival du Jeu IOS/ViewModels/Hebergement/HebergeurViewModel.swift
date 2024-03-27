@@ -80,18 +80,23 @@ class HebergeurViewModel: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200: // Created
+                    print("Modification réussi")
                     completion(nil)
                 case 400: // Bad Request
+                    print("Modification Bad Request")
                     completion(NSError(domain: "Bad Request", code: httpResponse.statusCode, userInfo: nil))
                 case 401: // Unauthorized
+                    print("Modification Unauthorized")
                     completion(NSError(domain: "Unauthorized", code: httpResponse.statusCode, userInfo: nil))
                 case 404: // Not Found
+                    print("Modification Not Found")
                     completion(NSError(domain: "Not Found", code: httpResponse.statusCode, userInfo: nil))
                 case 500: // Internal Server Error
                     let errorMessage = String(data: data, encoding: .utf8) ?? "Internal Server Error"
                     print("Internal server error: \(errorMessage)")
                     completion(NSError(domain: errorMessage, code: httpResponse.statusCode, userInfo: nil))
                 default:
+                    print("Modification Unknown Error")
                     completion(NSError(domain: "Unknown", code: httpResponse.statusCode, userInfo: nil))
                 }
             } else {

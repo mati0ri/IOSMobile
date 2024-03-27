@@ -35,7 +35,7 @@ struct HebergeurView: View {
             
             if !isFormShown {
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack() {
                     
                     HStack {
                         ForEach(hebergement.hebergement.jours.indices, id: \.self) { index in
@@ -43,16 +43,18 @@ struct HebergeurView: View {
                         }
                     }
                     Spacer()
-                    HStack {
-                        Text("Adresse : ").font(.headline)
-                        Text(hebergement.hebergement.adresse)
-                    }
-                    HStack {
-                        Text("Nombre de places : ").font(.headline)
-                        Text(hebergement.hebergement.nbPlace.description)
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text("Adresse : ").font(.headline)
+                            Text(hebergement.hebergement.adresse)
+                        }
+                        HStack {
+                            Text("Nombre de places : ").font(.headline)
+                            Text(hebergement.hebergement.nbPlace.description)
+                        }
                     }
                     Divider()
-                    VStack {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("Les bénévoles que vous allez héberger :").font(.headline)
                         if hebergement.hebergement.reservations != nil {
                             ForEach(hebergement.hebergement.reservations!, id: \.self) { resa in
@@ -123,18 +125,25 @@ struct HebergeurView: View {
                             } else {
                                 // Proceed with creating the proposition
                                 let joursArray = joursSelectionnes.map { $0.rawValue }
-                                print("nbPlaces: \(nbPlace), adresse: \(adresse), jours: \(joursArray)")
-                                hebergement.updateHebergement(hebergementId: hebergement.hebergement.hebergementId, nbPlace: hebergement.hebergement.nbPlace, adresse: hebergement.hebergement.adresse, jours: joursArray) { error in
+                                print("Tentative de modification avec nbPlaces: \(nbPlace), adresse: \(adresse), jours: \(joursArray)")
+                                hebergement.updateHebergement(hebergementId: hebergement.hebergement.hebergementId, nbPlace: Int(nbPlace)!, adresse: adresse, jours: joursArray) { error in
                                     if let error = error {
                                         print("Error creating proposition: \(error.localizedDescription)")
                                         // Handle error if needed
                                     } else {
                                         // Proposition created successfully
                                         // Handle success if needed
-                                        print("Proposition modifiée")
-                                        isFormShown = false
+                                        print("Proposition modifiée avec succès")
+                                        DispatchQueue.main.async {
+                                            // Mettre à jour les valeurs de l'écran avec les nouvelles données
+                                            hebergement.hebergement.nbPlace = Int(nbPlace)!
+                                            hebergement.hebergement.adresse = adresse
+                                            hebergement.hebergement.jours = joursSelectionnes
+                                            isFormShown = false // Fermer le formulaire après la modification réussie
+                                        }
                                     }
                                 }
+                                print("Fin tentative de modification")
                             }
                         }
                         Button("Annuler") {

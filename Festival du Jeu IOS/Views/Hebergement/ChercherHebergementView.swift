@@ -68,16 +68,20 @@ struct ChercherHebergementView: View {
                 List {
                     ForEach(reservations, id: \.id) { resa in
                         NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
-                            VStack {
-                                Text(resa.reservation!.jour.rawValue).font(.headline)
-                                HStack {
-                                    Text("Adresse : ")
-                                    Text(resa.hebergement.adresse)
+                            HStack {
+                                Spacer()
+                                VStack {
+                                    Text(resa.reservation!.jour.rawValue).font(.headline)
+                                    HStack {
+                                        Text("Adresse : ")
+                                        Text(resa.hebergement.adresse)
+                                    }
+                                    HStack {
+                                        Text("Nombre de places : ")
+                                        Text(resa.hebergement.nbPlace.description)
+                                    }
                                 }
-                                HStack {
-                                    Text("Nombre de places : ")
-                                    Text(resa.hebergement.nbPlace.description)
-                                }
+                                Spacer()
                             }
                         }
                     }
@@ -92,46 +96,49 @@ struct ChercherHebergementView: View {
             
             if !choix.isEmpty {
                 
-                Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?")
-                HStack {
-                    Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
-                    Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
-                    Toggle(Jours.Dimanche.rawValue.capitalized, isOn: $dimancheSelected)
-                }
-                
-                if !fridayHebergements.isEmpty && vendrediSelected {
-                    VStack {
-                        Text("Vendredi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(fridayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Vendredi)
+                VStack {
+                    
+                    Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?")
+                    HStack {
+                        Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
+                        Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
+                        Toggle(Jours.Dimanche.rawValue.capitalized, isOn: $dimancheSelected)
+                    }
+                    
+                    if !fridayHebergements.isEmpty && vendrediSelected {
+                        VStack {
+                            Text("Vendredi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(fridayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Vendredi)
+                                }
                             }
                         }
                     }
-                }
-                
-                
-                if !saturdayHebergements.isEmpty && samediSelected {
-                    VStack {
-                        Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(saturdayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Samedi)
+                    
+                    
+                    if !saturdayHebergements.isEmpty && samediSelected {
+                        VStack {
+                            Text("Samedi").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(saturdayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Samedi)
+                                }
                             }
                         }
                     }
-                }
-                
-                if !sundayHebergements.isEmpty && dimancheSelected {
-                    VStack {
-                        Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
-                        List {
-                            ForEach(sundayHebergements, id: \.id) { heb in
-                                ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Dimanche)
+                    
+                    if !sundayHebergements.isEmpty && dimancheSelected {
+                        VStack {
+                            Text("Dimanche").font(.title.bold()).foregroundColor(Colors.BleuFonce)
+                            List {
+                                ForEach(sundayHebergements, id: \.id) { heb in
+                                    ChoixHebergementView(hebergement: heb.hebergement, jour: Jours.Dimanche)
+                                }
                             }
                         }
                     }
-                }
+                }.padding()
                 
             } else if aucunChoix {
                 Text("Aucun hébergement disponible pour le moment.")
@@ -139,7 +146,7 @@ struct ChercherHebergementView: View {
                 Text("Chargement des hébergements en cours...")
             }
             
-            Spacer()
+            //Spacer()
             
         }.navigationTitle("Chercher un Hebergement")
             .onAppear {
