@@ -65,26 +65,29 @@ struct ChercherHebergementView: View {
             
             Text("Mes réservations").font(.title).foregroundColor(Colors.BleuFonce)
             if !reservations.isEmpty {
-                List {
-                    ForEach(reservations, id: \.id) { resa in
-                        NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
-                            HStack {
-                                Spacer()
-                                VStack {
-                                    Text(resa.reservation!.jour.rawValue).font(.headline)
-                                    HStack {
-                                        Text("Adresse : ")
-                                        Text(resa.hebergement.adresse)
+                if !vendrediSelected && !samediSelected && !dimancheSelected {
+                    List {
+                        ForEach(reservations, id: \.id) { resa in
+                            NavigationLink(destination: ReservationView(hebergement: resa.hebergement, jour: resa.reservation!.jour, reserved: true, resa: resa.reservation)) {
+                                HStack {
+                                    Spacer()
+                                    VStack {
+                                        Text(resa.reservation!.jour.rawValue).font(.headline)
+                                        HStack {
+                                            Text("Adresse : ")
+                                            Text(resa.hebergement.adresse)
+                                        }
+                                        HStack {
+                                            Text("Nombre de places : ")
+                                            Text(resa.hebergement.nbPlace.description)
+                                        }
                                     }
-                                    HStack {
-                                        Text("Nombre de places : ")
-                                        Text(resa.hebergement.nbPlace.description)
-                                    }
+                                    Spacer()
                                 }
-                                Spacer()
                             }
                         }
-                    }
+                    }.frame(height: 300) // Hauteur fixe de la frame pour la liste
+                        .clipped()
                 }
             } else if aucuneReservation {
                 Text("Vous n'avez réservé aucun hébergement pour le moment.")
@@ -98,7 +101,7 @@ struct ChercherHebergementView: View {
                 
                 VStack {
                     
-                    Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?")
+                    Text("Pour quel(s) jour(s) cherchez-vous un hébergement ?").font(.headline)
                     HStack {
                         Toggle(Jours.Vendredi.rawValue.capitalized, isOn: $vendrediSelected)
                         Toggle(Jours.Samedi.rawValue.capitalized, isOn: $samediSelected)
@@ -146,7 +149,7 @@ struct ChercherHebergementView: View {
                 Text("Chargement des hébergements en cours...")
             }
             
-            //Spacer()
+            Spacer()
             
         }.navigationTitle("Chercher un Hebergement")
             .onAppear {
