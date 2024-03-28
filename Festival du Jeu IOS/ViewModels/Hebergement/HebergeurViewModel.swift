@@ -20,11 +20,32 @@ class HebergeurViewModel: ObservableObject {
     
     let id = UUID()
     var hebergement: HebergementModel
-    
+    @Published var reservations: [ReservationModel] = []
+    var userIds: [String] = []
+    @Published var users: [UserModel] = []
     
     
     init(hebergement: HebergementModel) {
         self.hebergement = hebergement
+        DispatchQueue.main.async {
+            self.getReservationsHeb()
+            self.fetchUsers()
+        }
+    }
+    
+    public func fetchUsers() {
+        for userId in userIds {
+            getUserById(userId: userId) { result in
+                switch result {
+                case .success(let user):
+                    // Ajouter l'utilisateur récupéré à la liste des utilisateurs
+                    self.users.append(user)
+                case .failure(let error):
+                    print("Failed to fetch user: \(error.localizedDescription)")
+                    // Gérer l'erreur de manière appropriée, par exemple, afficher un message d'erreur à l'utilisateur.
+                }
+            }
+        }
     }
     
     func deleteHebergement(hebergementId: String, completion: @escaping (Error?) -> Void) {
@@ -104,6 +125,78 @@ class HebergeurViewModel: ObservableObject {
                 completion(NSError(domain: "Unknown response", code: 0, userInfo: nil))
             }
         }.resume()
+    }
+    
+    public func getReservationsHeb() {
+        let reservationViewModel = ReservationViewModel(hebergement: hebergement)
+        reservationViewModel.getReservations { result in
+            switch result {
+            case .success(let reservations):
+                // Filtrer les réservations pour l'hébergement concerné
+                let reservationsForHebergement = reservations.filter { $0.hebergement.hebergementId == self.hebergement.hebergementId }
+                // Mettre à jour la liste des réservations avec les réservations filtrées
+                DispatchQueue.main.async {
+                    self.reservations = reservationsForHebergement
+                    // Récupérer les IDs d'utilisateur à partir des réservations
+                    self.userIds = reservationsForHebergement.map { $0.userId }
+                }
+            case .failure(let error):
+                print("Failed to fetch reservations: \(error.localizedDescription)")
+                // Peut-être gérer l'erreur d'une manière appropriée, par exemple, afficher un message d'erreur à l'utilisateur.
+            }
+        }
+    }
+    
+    // Fonction pour récupérer un utilisateur par son ID
+    func getUserById(userId: String, completion: @escaping (Result<UserModel, Error>) -> Void) {
+        // Construire l'URL de l'endpoint pour récupérer un utilisateur par son ID
+        let userURL = "https://backawi.onrender.com/api/user/\(userId)"
+        
+        // Création de l'URL à partir de la string
+        guard let url = URL(string: userURL) else {
+            completion(.failure(ReservationError.invalidURL))
+            return
+        }
+        
+        // Création de la requête GET
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        // Création de la session URLSession pour effectuer la requête
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // Vérification des erreurs potentielles
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            // Vérification de la réponse HTTP
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(ReservationError.unknownResponse))
+                return
+            }
+            
+            // Vérification du statut de la réponse HTTP
+            guard (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(ReservationError.httpError(httpResponse.statusCode)))
+                return
+            }
+            
+            // Vérification des données reçues
+            guard let data = data else {
+                completion(.failure(ReservationError.invalidData))
+                return
+            }
+            
+            do {
+                // Décodage des données JSON en objet UserModel
+                let decodedUser = try JSONDecoder().decode(UserModel.self, from: data)
+                completion(.success(decodedUser))
+            } catch {
+                // Gestion des erreurs de décodage
+                completion(.failure(error))
+            }
+        }.resume() // Lancement de la tâche URLSession
     }
     
 }
