@@ -49,16 +49,19 @@ struct HebergeurView: View {
                     Divider()
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Les bénévoles que vous allez héberger :").font(.headline)
-                        if hebergement.hebergement.reservations != nil {
-                            ForEach(hebergement.hebergement.reservations!, id: \.self) { resa in
+                        if !hebergement.users.isEmpty {
+                            ForEach(hebergement.users.indices, id: \.self) { index in
+                                let user = hebergement.users[index]
                                 HStack {
-                                    Text("\(resa.user!.prenom) \(resa.user!.nom)")
-                                    Text(resa.jour.rawValue).font(.headline)
+                                    Text("\(user.prenom) \(user.nom)")
                                 }
                             }
                         } else {
                             Text("Personne n'a réservé pour ce logement pour l'instant.")
                         }
+                    }.onAppear {
+                        // Charger les données lors de l'apparition de la vue
+                        loadReservationsAndUsers()
                     }
                     Spacer()
                     
@@ -145,6 +148,14 @@ struct HebergeurView: View {
             }
         }
         
+    }
+    
+    func loadReservationsAndUsers() {
+        // Charger les réservations et les utilisateurs à partir du viewModel
+        // Appelez les méthodes nécessaires de votre HebergeurViewModel pour charger les données
+        // Par exemple :
+        hebergement.getReservationsHeb()
+        hebergement.fetchUsers()
     }
     
     func validateForm() -> Bool {
