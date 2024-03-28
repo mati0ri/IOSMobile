@@ -2,13 +2,6 @@
 //  ProposerHebergementViewModel.swift
 //  Festival du Jeu IOS
 //
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
-//  ProposerHebergementViewModel.swift
-//  Festival du Jeu IOS
-//
 //  Created by Lénaïs Desbos on 19/03/2024.
 //
 
@@ -55,15 +48,15 @@ class ProposerHebergementViewModel: ObservableObject {
 
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
-                case 201: // Created
+                case 201:
                     completion(nil)
-                case 400: // Bad Request
+                case 400:
                     completion(NSError(domain: "Bad Request", code: httpResponse.statusCode, userInfo: nil))
-                case 401: // Unauthorized
+                case 401:
                     completion(NSError(domain: "Unauthorized", code: httpResponse.statusCode, userInfo: nil))
-                case 404: // Not Found
+                case 404:
                     completion(NSError(domain: "Not Found", code: httpResponse.statusCode, userInfo: nil))
-                case 500: // Internal Server Error
+                case 500:
                     let errorMessage = String(data: data, encoding: .utf8) ?? "Internal Server Error"
                     print("Internal server error: \(errorMessage)")
                     completion(NSError(domain: errorMessage, code: httpResponse.statusCode, userInfo: nil))

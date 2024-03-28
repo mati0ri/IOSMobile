@@ -20,7 +20,6 @@ struct ProfileView: View {
                 ScrollView {
 //                    Spacer(minLength: 50)
                     VStack(alignment: .center, spacing: 20) {
-                        // Bloc pour l'image de profil
                         AsyncImage(url: URL(string: profileData.photoDeProfil)) { image in
                             image.resizable()
                         } placeholder: {
@@ -30,7 +29,6 @@ struct ProfileView: View {
                         .clipShape(Circle())
                         .shadow(radius: 6)
                         
-                        // Premier bloc pour le prénom et le nom
                         VStack {
                             Text("\(profileData.prenom) \(profileData.nom)")
                                 .font(.title)
@@ -63,6 +61,16 @@ struct ProfileView: View {
                                     CardView(title: "Éditions précédentes", detail: String(nombreEditionPrecedente))
                                 }
                             }
+                            
+//                            Button("Se déconnecter") {
+//                                            UserDefaults.standard.removeObject(forKey: "token")
+//                                        }
+//                                        .padding()
+//                                        .foregroundColor(.red)
+//                                        .frame(maxWidth: .infinity)
+//                                        .background(Color.blue)
+//                                        .cornerRadius(10)
+//                                        .shadow(radius: 5)
                         }
                         
                     .padding()
@@ -96,7 +104,7 @@ struct ProfileEditView: View {
     @State private var tempEmail: String = ""
     @State private var tempPseudo: String = ""
     @State private var tempTelephone: String = ""
-    @State private var tempTailleTShirt: String = ""
+    @State private var tempTailleTShirt: String = "M"
     @State private var tempPhotoDeProfil: String = ""
     @State private var tempAssociation: String = ""
     @State private var tempNombreEditionPrecedente: Int? = nil
@@ -147,11 +155,7 @@ struct ProfileEditView: View {
                         Spacer()
                         TextField("Photo", text: $tempPhotoDeProfil)
                     }
-                    HStack {
-                        Text("Association")
-                        Spacer()
-                        TextField("Association", text: $tempAssociation)
-                    }
+
                                         
                     HStack {
                         Text("Éditions précédentes")
@@ -169,13 +173,7 @@ struct ProfileEditView: View {
                         .keyboardType(.numberPad)
 
                                         }
-                                     
-                    HStack {
-                        Text("Jeu Préféré")
-                        Spacer()
-                        TextField("Jeu Préféré", text: $tempJeuPrefere)
-                    }
-                    
+                                                         
                     
 
                                     
@@ -192,14 +190,8 @@ struct ProfileEditView: View {
                     tempTelephone = profileData.telephone
                     tempTailleTShirt = profileData.tailleTShirt
                     tempPhotoDeProfil = profileData.photoDeProfil
-                    if profileData.association == "AUCUNE" {
-                        tempAssociation = ""
-                    } else {
-                        tempAssociation = profileData.association ?? ""
-                    }
                     tempNombreEditionPrecedente = profileData.nombreEditionPrecedente
                     tempVegetarien = profileData.vegetarien
-                    tempJeuPrefere = profileData.jeuPrefere ?? ""
                 }
             }
             .navigationTitle("Modifier le Profil")
@@ -212,13 +204,11 @@ struct ProfileEditView: View {
                     updatedData.telephone = tempTelephone
                     updatedData.tailleTShirt = tempTailleTShirt
                     updatedData.photoDeProfil = tempPhotoDeProfil
-                    updatedData.association = tempAssociation
                     updatedData.nombreEditionPrecedente = tempNombreEditionPrecedente
                     updatedData.vegetarien = tempVegetarien
-                    updatedData.jeuPrefere = tempJeuPrefere
                     
                     viewModel.updateProfile(with: updatedData)
-                    presentationMode.wrappedValue.dismiss() // Ferme la vue après enregistrement
+                    presentationMode.wrappedValue.dismiss()
                 }
             })
         }
@@ -226,7 +216,6 @@ struct ProfileEditView: View {
 }
 
 
-// Composant de vue pour une carte d'information
 struct CardView: View {
     var title: String
     var detail: String

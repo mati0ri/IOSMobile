@@ -14,13 +14,14 @@ struct WelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("logo-FDJ") // Utilisation de l'image à la place du texte
-                                    .resizable() // Rend l'image redimensionnable
-                                    .scaledToFit() // Assure que le logo s'adapte à l'espace disponible tout en conservant ses proportions
+                Image("logo-FDJ")
+                                    .resizable()
+                                    .scaledToFit()
                                     .frame(height: 160)
 
 
                 if viewModel.isLoading || nextAffectationViewModel.isLoading {
+                    Spacer(minLength: 240)
                     ProgressView()
                 } else {
                     NextAffectationCard(affectation: nextAffectationViewModel.nextAffectation)
@@ -63,15 +64,15 @@ struct StatisticCard: View {
     let number: String
 
     var body: some View {
-        VStack(spacing: 4) { // Ajoutez un petit espace entre le nombre et le label si nécessaire
+        VStack(spacing: 4) {
             Text(number)
-                .font(.system(size: 22)) // Ajustez la taille de la police comme vous le souhaitez
+                .font(.system(size: 22))
                 .fontWeight(.bold)
             Text(label)
         }
         .foregroundColor(.white)
-        .padding(.vertical, 8) // Ajustez le padding vertical pour permettre à l'ensemble du contenu de rentrer
-        .frame(minWidth: 0, maxWidth: .infinity) // Permet à la carte de s'étendre horizontalement
+        .padding(.vertical, 8)
+        .frame(minWidth: 0, maxWidth: .infinity)
         .background(Colors.BleuGris.opacity(0.9))
         .cornerRadius(12)
     }
@@ -134,36 +135,58 @@ struct NextAffectationCard: View {
 struct SoireeDetailView: View {
     let soiree: SoireeDecouverteModel
     @ObservedObject var viewModel: WelcomeViewModel
+    @State private var isUserRegistered: Bool
+    
+    init(soiree: SoireeDecouverteModel, viewModel: WelcomeViewModel) {
+        self.soiree = soiree
+        self.viewModel = viewModel
+        _isUserRegistered = State(initialValue: soiree.isUserRegistered(userId: TokenManager.getUserIdFromToken() ?? "pas de token"))
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(soiree.nom)
                 .font(.title)
                 .fontWeight(.bold)
-            Text("Date: \(soiree.date)")
+            Text("Date: \(formattedDate(soiree.date))")
             Text("Lieu: \(soiree.lieu)")
             
             Text("Jeux:")
             ForEach(soiree.jeux) { jeu in
                 Text(jeu.nom)
+                    .foregroundColor(Color.gray)
             }
 
             Spacer()
             
-            if soiree.isUserRegistered(userId: TokenManager.getUserIdFromToken() ?? "pas de token") {
+            if isUserRegistered {
                             Button("Se désister") {
                                 viewModel.deregisterFromSoiree(userId: TokenManager.getUserIdFromToken() ?? "pas de token", soireeId: soiree.id)
+                                isUserRegistered = false
                             }
                             .foregroundColor(.red)
                         } else {
                             Button("S'inscrire") {
                                 viewModel.registerForSoiree(userId: TokenManager.getUserIdFromToken() ?? "pas de token", soireeId: soiree.id)
+                                isUserRegistered = true
                             }
                             .foregroundColor(.green)
                         }
         }
         .padding()
-        // Removed the .navigationBarItems modifier with the "Fermer" button
+    }
+    
+    func formattedDate(_ dateString: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withFullDate, .withTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
+        if let date = isoFormatter.date(from: dateString) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "fr_FR")
+            dateFormatter.setLocalizedDateFormatFromTemplate("EEEE d MMMM 'à' HH:mm")
+            return dateFormatter.string(from: date)
+        } else {
+            return "Date invalide"
+        }
     }
 }
 
@@ -175,7 +198,7 @@ extension String {
             let fin = String(composants[2])
             return "\(debut)h - \(fin)h"
         } else {
-            return self // Retourne la chaîne originale si le format n'est pas respecté
+            return self
         }
     }
 }

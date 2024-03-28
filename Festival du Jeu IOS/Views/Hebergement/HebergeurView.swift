@@ -1,11 +1,4 @@
 //
-//  HebergeurView.swift
-//  Festival du Jeu IOS
-//
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
 //  ChoixHebergementView.swift
 //  Festival du Jeu IOS
 //
@@ -103,7 +96,6 @@ struct HebergeurView: View {
                         TextField("Nombre de places", text: $nbPlace)
                             .keyboardType(.numberPad)
                         TextField("Adresse", text: $adresse)
-                        //Section(header: Text("Jours")) {
                         ForEach(joursFiltered, id: \.self) { jour in
                             Toggle(jour.rawValue.capitalized, isOn: Binding(
                                 get: { joursSelectionnes.contains(jour) },
@@ -123,19 +115,14 @@ struct HebergeurView: View {
                             if !validateForm() {
                                 showAlert = true
                             } else {
-                                // Proceed with creating the proposition
                                 let joursArray = joursSelectionnes.map { $0.rawValue }
                                 print("Tentative de modification avec nbPlaces: \(nbPlace), adresse: \(adresse), jours: \(joursArray)")
                                 hebergement.updateHebergement(hebergementId: hebergement.hebergement.hebergementId, nbPlace: Int(nbPlace)!, adresse: adresse, jours: joursArray) { error in
                                     if let error = error {
                                         print("Error creating proposition: \(error.localizedDescription)")
-                                        // Handle error if needed
                                     } else {
-                                        // Proposition created successfully
-                                        // Handle success if needed
                                         print("Proposition modifiée avec succès")
                                         DispatchQueue.main.async {
-                                            // Mettre à jour les valeurs de l'écran avec les nouvelles données
                                             hebergement.hebergement.nbPlace = Int(nbPlace)!
                                             hebergement.hebergement.adresse = adresse
                                             hebergement.hebergement.jours = joursSelectionnes
@@ -164,7 +151,6 @@ struct HebergeurView: View {
         var isValid = true
         var errorMessage = "Veuillez corriger les éléments suivants :"
         
-        // Validate number of places
         if nbPlace.isEmpty {
             isValid = false
             errorMessage += "\n- Le nombre de places doit être au moins égal à 1."
@@ -173,13 +159,11 @@ struct HebergeurView: View {
             errorMessage += "\n- Le nombre de places doit être au moins égal à 1."
         }
         
-        // Validate address
         if adresse.isEmpty {
             isValid = false
             errorMessage += "\n- Veuillez entrer une adresse."
         }
         
-        // Validate selected days
         if joursSelectionnes.isEmpty {
             isValid = false
             errorMessage += "\n- Veuillez sélectionner au moins un jour."

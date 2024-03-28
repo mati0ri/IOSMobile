@@ -35,7 +35,6 @@ struct ChoixHebergementView: View {
                         if let nbReservations = nbReservations {
                             reste = hebergement.nbPlace - nbReservations
                         } else {
-                            // Gérer le cas où la récupération du nombre de réservations a échoué
                             self.reste = 0
                         }
                     }

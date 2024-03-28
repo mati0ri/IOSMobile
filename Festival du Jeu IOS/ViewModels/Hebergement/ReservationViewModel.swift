@@ -79,7 +79,6 @@ class ReservationViewModel: ObservableObject {
 
             if let responseString = String(data: data, encoding: .utf8) {
                 print("Response: \(responseString)")
-                // Handle response data, if needed
             }
         }.resume()
     }
