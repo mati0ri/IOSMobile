@@ -58,10 +58,8 @@ class WelcomeViewModel: ObservableObject {
 
         performPostRequest(urlString: urlString, requestBody: jsonData) { success, error in
             if success {
-                // Handle successful registration
                 print("Successfully registered for the soiree")
             } else {
-                // Handle error
                 print("Failed to register for the soiree: \(String(describing: error))")
             }
         }

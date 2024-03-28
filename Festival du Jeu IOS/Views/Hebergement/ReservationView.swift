@@ -19,8 +19,8 @@ struct ReservationView: View {
     public var resa: ReservationModel?
     
     @State public var isReserved: Bool
-    @State private var showAlert: Bool = false // Contrôle la visibilité de l'alerte
-    @State private var alertMessage: String? // Message à afficher dans l'alerte
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String?
     
     init(hebergement: HebergementModel, jour: Jours, reserved: Bool?, resa: ReservationModel? = nil) {
         self.hebergement = hebergement
@@ -108,7 +108,6 @@ struct ReservationView: View {
                 if let nbReservations = nbReservations {
                     reste = hebergement.nbPlace - nbReservations
                 } else {
-                    // Gérer le cas où la récupération du nombre de réservations a échoué
                     self.reste = 0
                 }
             }

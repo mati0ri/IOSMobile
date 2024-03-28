@@ -80,14 +80,12 @@ class ChercherHebergementViewModel: ObservableObject {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            // Vérification des erreurs
             if let error = error {
                 print("Erreur de requête: \(error.localizedDescription)")
                 completion(nil)
                 return
             }
             
-            // Vérification de la réponse
             guard let httpResponse = response as? HTTPURLResponse else {
                 print("Réponse serveur invalide")
                 completion(nil)
@@ -106,7 +104,6 @@ class ChercherHebergementViewModel: ObservableObject {
                 return
             }
             
-            // Vérification des données
             guard let data = data else {
                 print("Aucune donnée reçue")
                 completion(nil)

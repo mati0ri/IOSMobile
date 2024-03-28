@@ -1,11 +1,4 @@
 //
-//  HebergeurViewModel.swift
-//  Festival du Jeu IOS
-//
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
 //  File.swift
 //  Festival du Jeu IOS
 //

@@ -2,13 +2,6 @@
 //  ChercherHebergementView.swift
 //  Festival du Jeu IOS
 //
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
-//  ChercherHebergementView.swift
-//  Festival du Jeu IOS
-//
 //  Created by Lénaïs Desbos on 19/03/2024.
 //
 
@@ -20,7 +13,6 @@ struct ChercherHebergementView: View {
     @State private var choix: [ReservationViewModel] = []
     @State private var reservations: [ReservationViewModel] = []
     
-    // Ajouter une propriété pour stocker les identifiants des hébergements déjà réservés
     @State private var hebergementsReserves: Set<String> = []
     
     @State private var fridayHebergements: [ReservationViewModel] = []
@@ -35,12 +27,10 @@ struct ChercherHebergementView: View {
     
     private func splitHebergementsByDay() {
         
-        // Réinitialiser les tableaux de réservations pour chaque jour
         fridayHebergements.removeAll()
         saturdayHebergements.removeAll()
         sundayHebergements.removeAll()
         
-        // Filtrer les choix et les affecter aux tableaux appropriés en fonction du jour
         for reservation in choix {
             
             if !hebergementsReserves.contains(reservation.hebergement.hebergementId) {
@@ -86,7 +76,7 @@ struct ChercherHebergementView: View {
                                 }
                             }
                         }
-                    }.frame(height: 300) // Hauteur fixe de la frame pour la liste
+                    }.frame(height: 300)
                         .clipped()
                 }
             } else if aucuneReservation {

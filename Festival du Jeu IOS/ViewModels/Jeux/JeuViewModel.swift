@@ -57,9 +57,7 @@ class JeuViewModel: ObservableObject {
             }
             
             do {
-                // Décode les données JSON
                 let decodedData = try JSONDecoder().decode(ZoneResponse.self, from: data)
-                // Récupère le nom de la zone et le passe à la completion
                 completion(decodedData.nom)
             } catch {
                 print("Erreur de décodage : \(error)")
@@ -71,7 +69,6 @@ class JeuViewModel: ObservableObject {
     
 }
 
-// Structure pour définir la structure de la réponse JSON
 struct ZoneResponse: Codable {
     let id: String
     let nom: String

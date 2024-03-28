@@ -2,13 +2,6 @@
 //  ProposerHebergementView.swift
 //  Festival du Jeu IOS
 //
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
-//  ProposerHebergementView.swift
-//  Festival du Jeu IOS
-//
 //  Created by Lénaïs Desbos on 19/03/2024.
 //
 
@@ -96,16 +89,12 @@ struct ProposerHebergementView: View {
                             if !validateForm() {
                                 showAlert = true
                             } else {
-                                // Proceed with creating the proposition
                                 let joursArray = joursSelectionnes.map { $0.rawValue }
                                 print("nbPlaces: \(nbPlace), adresse: \(adresse), jours: \(joursArray)")
                                 proposerHebergementViewModel.createProposition(nbPlace: Int(nbPlace)!, adresse: adresse, jours: joursArray) { error in
                                     if let error = error {
                                         print("Error creating proposition: \(error.localizedDescription)")
-                                        // Handle error if needed
                                     } else {
-                                        // Proposition created successfully
-                                        // Handle success if needed
                                         print("Proposition ajoutée")
                                         proposerHebergementViewModel.getHebergementByHebergeur { fetchedProps in
                                             if let fetchedProps = fetchedProps {
@@ -163,7 +152,6 @@ struct ProposerHebergementView: View {
         var isValid = true
         var errorMessage = "Veuillez corriger les éléments suivants :"
         
-        // Validate number of places
         if nbPlace.isEmpty {
             isValid = false
             errorMessage += "\n- Le nombre de places doit être au moins égal à 1."
@@ -172,13 +160,11 @@ struct ProposerHebergementView: View {
             errorMessage += "\n- Le nombre de places doit être au moins égal à 1."
         }
         
-        // Validate address
         if adresse.isEmpty {
             isValid = false
             errorMessage += "\n- Veuillez entrer une adresse."
         }
         
-        // Validate selected days
         if joursSelectionnes.isEmpty {
             isValid = false
             errorMessage += "\n- Veuillez sélectionner au moins un jour."

@@ -13,24 +13,15 @@ struct Footer: View {
         VStack {
             Spacer()
             HStack {
-                Spacer()
 
-                
-                NavigationLink(destination: HebergementView()) {
-                    Text("Hebergement")
-                }.foregroundColor(Colors.BleuFonce)
-                
-                Spacer()
-                
-                NavigationLink(destination: PlanningView()) {
-                    VStack {
-                        Image(systemName: "calendar")
-                            .foregroundColor(Colors.BleuFonce)
-                        Text("Planning")
-                            .foregroundColor(Colors.BleuFonce)
-
-                    }
-                }
+                NavigationLink(destination: CreneauxView()) {
+                                    VStack {
+                                        Image(systemName: "calendar.badge.plus")
+                                            .foregroundColor(Colors.BleuFonce)
+                                        Text("Créneaux")
+                                            .foregroundColor(Colors.BleuFonce)
+                                    }
+                                }
                 
                 Spacer()
                 
@@ -44,7 +35,37 @@ struct Footer: View {
                     }
                 }
                 
+
                 Spacer()
+
+                
+                NavigationLink(destination: PlanningView()) {
+                    VStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(Colors.BleuFonce)
+                        Text("Planning")
+                            .foregroundColor(Colors.BleuFonce)
+
+                    }
+                }
+                
+
+                                Spacer()
+                                
+                                NavigationLink(destination: HebergementView()) {
+                                    VStack {
+                                        Image(systemName: "house.fill")
+                                            .foregroundColor(Colors.BleuFonce)
+                                        Text("Loger")
+                                            .foregroundColor(Colors.BleuFonce)
+                                    }
+                                }
+                
+                Spacer()
+                
+                
+                
+                
                 
                 NavigationLink(destination: ProfileView()) {
                     VStack {
@@ -55,7 +76,7 @@ struct Footer: View {
 
                     }
                 }
-                Spacer()
+
             }
             .padding()
             .background(Colors.BleuGris.opacity(0.2))

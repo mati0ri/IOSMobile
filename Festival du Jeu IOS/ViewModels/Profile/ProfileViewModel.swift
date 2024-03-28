@@ -80,7 +80,6 @@ class ProfileViewModel: ObservableObject {
                     return
                 }
                 
-                // Mise à jour des données de l'utilisateur localement si la requête réussit
                 self.profileData = updatedData
             }
         }.resume()

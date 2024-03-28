@@ -2,13 +2,6 @@
 //  ReservationModel.swift
 //  Festival du Jeu IOS
 //
-//  Created by Lénaïs Desbos on 22/03/2024.
-//
-
-//
-//  ReservationModel.swift
-//  Festival du Jeu IOS
-//
 //  Created by Lénaïs Desbos on 19/03/2024.
 //
 

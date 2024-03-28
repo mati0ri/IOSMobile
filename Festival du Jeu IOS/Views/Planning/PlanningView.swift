@@ -12,7 +12,6 @@ struct PlanningView: View {
     @StateObject var planningViewModel = PlanningViewModel()
     @State private var affectations: [AffectationViewModel] = []
     
-    // Propriétés pour stocker les affectations de samedi et dimanche
     @State private var saturdayAffectations: [AffectationViewModel] = []
     @State private var sundayAffectations: [AffectationViewModel] = []
     
@@ -26,11 +25,9 @@ struct PlanningView: View {
         return nil
     }
     
-    // Fonction pour diviser les affectations en affectations de samedi et dimanche
     private func splitAffectationsByDay() {
         
         affectations.sort { (affectation1, affectation2) -> Bool in
-            // Comparaison des horaires pour le tri
             if let debut1 = extractHour(from: affectation1.affectation.horaire.horaire),
                let debut2 = extractHour(from: affectation2.affectation.horaire.horaire) {
                 return debut1 < debut2
@@ -42,7 +39,6 @@ struct PlanningView: View {
         sundayAffectations = affectations.filter { $0.affectation.horaire.jour == "Dimanche" }
     }
     
-    // Fonction pour convertir le format "plage_X_Y" en "Xh - Yh"
     private func formatPlageHoraire(_ plageHoraire: String) -> String {
         let components = plageHoraire.components(separatedBy: "_")
         if components.count == 3, let debut = Int(components[1]), let fin = Int(components[2]) {
@@ -164,4 +160,10 @@ struct PlanningView: View {
         
     }
     
+}
+
+struct PlanningView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlanningView()
+    }
 }

@@ -17,7 +17,6 @@ struct AffectationView: View {
     @State private var equipe: [EquipeViewModel] = []
 
     
-    // Fonction pour convertir le format "plage_X_Y" en "Xh - Yh"
     private func formatPlageHoraire(_ plageHoraire: String) -> String {
         let components = plageHoraire.components(separatedBy: "_")
         if components.count == 3, let debut = Int(components[1]), let fin = Int(components[2]) {

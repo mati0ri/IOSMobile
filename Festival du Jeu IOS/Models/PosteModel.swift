@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct PosteModel: Decodable {
+struct PosteModel: Decodable, Identifiable {
     
-    var id: String
+    let id: String
     let intitule: String
     let details: String
     let referents: [ReferentModel]?
